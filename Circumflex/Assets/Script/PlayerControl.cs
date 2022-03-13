@@ -32,6 +32,9 @@ public class PlayerControl : MonoBehaviour
 
         if ((targetPosition - transform.position).magnitude > 2)
         {
+            Vector3 relativePos = targetPosition - transform.position;
+            Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 300 * Time.deltaTime);
             transform.position += (targetPosition - transform.position).normalized * speed * Time.deltaTime;
         }
     }
