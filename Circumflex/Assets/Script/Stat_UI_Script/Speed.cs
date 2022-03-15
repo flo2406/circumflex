@@ -20,7 +20,7 @@ public class Speed : MonoBehaviour
 
     void To_Str()
     {
-        text.text = "Wisdom :   " + speed_competence + "  (";
+        text.text = "Speed :   " + speed_competence + "  (";
         if (speed_armor >= 0)
             text.text += "+";
         text.text += speed_armor + ")";
