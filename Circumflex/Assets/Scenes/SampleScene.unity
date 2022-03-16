@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &355094748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4968447437888417514, guid: a93ff086c6d07fd4d8f2c7c386c3f0dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1344352667}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +291,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1112831341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1112831343}
+  - component: {fileID: 1112831342}
+  m_Layer: 0
+  m_Name: UI_gestion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1112831342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112831341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbadc340fa62924f8a397778e3e2b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 1536343594}
+  Player: {fileID: 355094748}
+--- !u!4 &1112831343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112831341}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 285.91714, y: 292.77136, z: 169.3563}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1344352667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -305,7 +356,7 @@ PrefabInstance:
     - target: {fileID: 4968447437888417514, guid: a93ff086c6d07fd4d8f2c7c386c3f0dc,
         type: 3}
       propertyPath: m_Name
-      value: Sword and Shield Animations
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4968447437888713482, guid: a93ff086c6d07fd4d8f2c7c386c3f0dc,
         type: 3}
@@ -384,6 +435,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4968447437888713482, guid: a93ff086c6d07fd4d8f2c7c386c3f0dc,
     type: 3}
   m_PrefabInstance: {fileID: 1344352667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1536343594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 466731131248411693, guid: 8f75ab27c405f7d42b2b4c5e4a6d370e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2671914795665271695}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1080903211280318757
 PrefabInstance:
@@ -480,6 +537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PersoCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 466731131248411693, guid: 8f75ab27c405f7d42b2b4c5e4a6d370e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7269800559505045486, guid: 8f75ab27c405f7d42b2b4c5e4a6d370e,
         type: 3}
