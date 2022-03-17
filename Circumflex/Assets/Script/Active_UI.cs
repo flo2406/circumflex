@@ -17,7 +17,14 @@ public class Active_UI : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.C))
         {
-            if(UI.active)
+            GameObject actual_description = UI.GetComponent<Description>().get_description();
+            if (actual_description != null)
+            {
+                Destroy(actual_description);
+                UI.GetComponent<Description>().set_description(null);
+            }
+
+            if (UI.active)
             {
                 UI.active = false;
                 Player.active = true;

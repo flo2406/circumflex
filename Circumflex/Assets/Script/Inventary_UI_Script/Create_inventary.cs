@@ -17,6 +17,9 @@ public class Create_inventary : MonoBehaviour
                 GameObject instance = Instantiate(item, gameObject.transform);
                 instance.transform.position += new Vector3(49 * x, -49 * y);
                 inventary.Add(instance);
+
+                GameObject parent = gameObject.transform.parent.gameObject;
+                instance.GetComponent<Stat_Armor>().set_ui(parent);
             }
         }
     }

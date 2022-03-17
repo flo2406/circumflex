@@ -23,10 +23,8 @@ public class Stat_Armor : MonoBehaviour
     private int stat_defense;
     private int stat_speed;
 
-
     [SerializeField] private GameObject description;
-    [SerializeField] private GameObject description_zone;
-    private GameObject actual_description;
+    private GameObject ui;
 
     void Start()
     {
@@ -36,21 +34,35 @@ public class Stat_Armor : MonoBehaviour
         stat_strength = 0;
         stat_defense = 0;
         stat_speed = 0;
-
-        actual_description = null;
     }
 
     public void On_Click_Item()
     {
+        GameObject actual_description = ui.GetComponent<Description>().get_description();
         if(actual_description != null)
         {
             Destroy(actual_description);
+            ui.GetComponent<Description>().set_description(null);
         }
 
+        Transform parent = null;
         if(type != Type.NONE)
         {
-            GameObject newDescription = Instantiate(description, description_zone.transform);
-            actual_description = newDescription;
+            Transform[] children = ui.GetComponentsInChildren<Transform>();
+            foreach(Transform child in children)
+            {
+
+                if (child.tag == "Description_ui")
+                    parent = child;
+            }
+
+            GameObject newDescription = Instantiate(description,parent);
+            ui.GetComponent<Description>().set_description(newDescription);
         }
+    }
+
+    public void set_ui(GameObject new_ui)
+    {
+        ui = new_ui;
     }
 }

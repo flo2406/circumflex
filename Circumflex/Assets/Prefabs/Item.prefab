@@ -142,8 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d539302858b16d1469fb616c2721602d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
-  description: {fileID: 124956076572293252, guid: 0ba98bf539baa1d4f8bd18f6c9af9790,
-    type: 3}
-  description_zone: {fileID: 466731131248411693, guid: 8f75ab27c405f7d42b2b4c5e4a6d370e,
+  type: 0
+  description: {fileID: 4227436113375892846, guid: eaa35d9216328d24c85b6b90581ab743,
     type: 3}

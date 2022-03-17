@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 6223156051526446463}
   - component: {fileID: 8195876720686372650}
   - component: {fileID: 1278964073402218961}
+  - component: {fileID: 4288554236289540384}
   m_Layer: 5
   m_Name: PersoCanvas
   m_TagString: Untagged
@@ -333,6 +334,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4288554236289540384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466731131248411693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6fff6e638b2154a9ea6afb9ab1778e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &999896600803017620
 GameObject:
   m_ObjectHideFlags: 0
