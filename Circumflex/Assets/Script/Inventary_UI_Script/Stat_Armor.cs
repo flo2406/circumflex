@@ -16,7 +16,7 @@ public enum Type
 
 public class Stat_Armor : MonoBehaviour
 {
-    private Type type;
+    public Type type;
     private int stat_vitality;
     private int stat_wisdom;
     private int stat_strength;
@@ -25,12 +25,12 @@ public class Stat_Armor : MonoBehaviour
 
 
     [SerializeField] private GameObject description;
-    [SerializeField] private Transform description_zone;
+    [SerializeField] private GameObject description_zone;
     private GameObject actual_description;
 
     void Start()
     {
-        type = Type.NONE;
+        type = Type.POTION;
         stat_vitality = 0;
         stat_wisdom = 0;
         stat_strength = 0;
@@ -49,7 +49,7 @@ public class Stat_Armor : MonoBehaviour
 
         if(type != Type.NONE)
         {
-            GameObject newDescription = Instantiate(description, description_zone);
+            GameObject newDescription = Instantiate(description, description_zone.transform);
             actual_description = newDescription;
         }
     }

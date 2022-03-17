@@ -118,7 +118,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6564064563055723965}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2445489200857478638}
+        m_MethodName: On_Click_Item
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2445489200857478638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d539302858b16d1469fb616c2721602d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: {fileID: 0}
-  description_zone: {fileID: 5965077378036164128, guid: 8bf1c0669c911184d90d11b4b34b0e56,
+  type: 2
+  description: {fileID: 124956076572293252, guid: 0ba98bf539baa1d4f8bd18f6c9af9790,
+    type: 3}
+  description_zone: {fileID: 466731131248411693, guid: 8f75ab27c405f7d42b2b4c5e4a6d370e,
     type: 3}
