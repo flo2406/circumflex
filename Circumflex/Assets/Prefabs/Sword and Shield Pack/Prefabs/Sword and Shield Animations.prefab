@@ -592,13 +592,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4968447437888417508}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.1655134, y: 0.06220092, z: -0.017649265, w: 0.98408586}
+  m_LocalPosition: {x: -0.030004, y: 0.54889, z: -0.16042}
+  m_LocalScale: {x: 0.99807703, y: 0.57389474, z: 1.2827399}
   m_Children: []
   m_Father: {fileID: 4968447437888713570}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 19.145, y: 7.089, z: -0.85800004}
 --- !u!137 &4968447437885235796
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -722,10 +722,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4968447437888713482}
   - component: {fileID: 4968447437880990866}
-  - component: {fileID: 4968447437888317936}
   - component: {fileID: 2287981426319913989}
   - component: {fileID: -3352744468500049254}
   - component: {fileID: 8187028156945940666}
+  - component: {fileID: 6117787632951937028}
+  - component: {fileID: 4230732378258391083}
   m_Layer: 0
   m_Name: Sword and Shield Animations
   m_TagString: Untagged
@@ -768,20 +769,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &4968447437888317936
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4968447437888417514}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.28
-  m_Height: 1.67
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.67, z: 0}
 --- !u!54 &2287981426319913989
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -823,6 +810,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e4651223c35d842b80bc9fcffb6ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &6117787632951937028
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4968447437888417514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4230732378258391083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4968447437888417514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c08f52ff4458c4f879184d729c4fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ennemy: {fileID: 7974426385427238766, guid: ff283afe8d5517d44b4b52a8363efd38, type: 3}
 --- !u!1 &4968447437888417516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,6 +2224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4968447437888713570}
+  - component: {fileID: 4126409448063635891}
   m_Layer: 0
   m_Name: geo
   m_TagString: Untagged
@@ -2225,8 +2240,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4968447437888417602}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.012664, y: 0.82002, z: 1.1606}
+  m_LocalScale: {x: 0.80833, y: 1.3864, z: 0.705}
   m_Children:
   - {fileID: 4968447437888713590}
   - {fileID: 4968447437888713596}
@@ -2236,6 +2251,19 @@ Transform:
   m_Father: {fileID: 4968447437888713482}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4126409448063635891
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4968447437888417602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.97077274, y: 1.2056609, z: 1.1538371}
+  m_Center: {x: -0.014613859, y: 0.55588657, z: 1.3550086}
 --- !u!1 &4968447437888417604
 GameObject:
   m_ObjectHideFlags: 0

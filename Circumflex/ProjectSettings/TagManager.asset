@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Description_ui
+  - Competences_ui
+  - UI
+  - Inventary_Data
   layers:
   - Default
   - TransparentFX

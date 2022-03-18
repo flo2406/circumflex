@@ -56,11 +56,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\Active_UI.cs" />
+     <Compile Include="Assets\Script\Inventary_UI_Script\Applied_Armor.cs" />
      <Compile Include="Assets\Script\Inventary_UI_Script\Create_inventary.cs" />
      <Compile Include="Assets\Script\Inventary_UI_Script\Description.cs" />
+     <Compile Include="Assets\Script\Inventary_UI_Script\Info_Storage.cs" />
+     <Compile Include="Assets\Script\Inventary_UI_Script\List_Inventary.cs" />
+     <Compile Include="Assets\Script\Inventary_UI_Script\Loot.cs" />
      <Compile Include="Assets\Script\Inventary_UI_Script\Stat_Armor.cs" />
      <Compile Include="Assets\Script\Move_Script\Animation.cs" />
      <Compile Include="Assets\Script\Move_Script\CamMoving.cs" />
+     <Compile Include="Assets\Script\Move_Script\Lootage.cs" />
      <Compile Include="Assets\Script\Move_Script\PlayerControl.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Defense.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Level.cs" />

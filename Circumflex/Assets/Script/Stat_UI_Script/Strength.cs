@@ -32,4 +32,10 @@ public class Strength : MonoBehaviour
         strength_competence += 1;
         To_Str();
     }
+
+    public void set_strength_armor(int str)
+    {
+        strength_armor = str;
+        To_Str();
+    }
 }

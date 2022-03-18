@@ -32,4 +32,10 @@ public class Defense : MonoBehaviour
         defense_competence += 1;
         To_Str();
     }
+
+    public void set_defense_armor(int def)
+    {
+        defense_armor = def;
+        To_Str();
+    }
 }

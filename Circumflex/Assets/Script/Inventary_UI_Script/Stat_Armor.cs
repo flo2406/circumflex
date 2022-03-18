@@ -12,6 +12,7 @@ public enum Type
     BOOTS,
     BELT,
     AMULET,
+    HELMET,
 }
 
 public class Stat_Armor : MonoBehaviour
@@ -22,18 +23,20 @@ public class Stat_Armor : MonoBehaviour
     private int stat_strength;
     private int stat_defense;
     private int stat_speed;
+    private int rarity;
 
     [SerializeField] private GameObject description;
     private GameObject ui;
 
-    void Start()
+    void Awake()
     {
-        type = Type.POTION;
+        type = Type.NONE;
         stat_vitality = 0;
         stat_wisdom = 0;
         stat_strength = 0;
         stat_defense = 0;
         stat_speed = 0;
+        rarity = 0;
     }
 
     public void On_Click_Item()
@@ -58,11 +61,24 @@ public class Stat_Armor : MonoBehaviour
 
             GameObject newDescription = Instantiate(description,parent);
             ui.GetComponent<Description>().set_description(newDescription);
+            newDescription.GetComponent<Info_Storage>().set_stat(stat_vitality, stat_wisdom, stat_strength, stat_defense, stat_speed, rarity, type);
         }
     }
 
     public void set_ui(GameObject new_ui)
     {
         ui = new_ui;
+    }
+
+
+    public void set_stat(int vitality, int wisdom, int strength, int defense, int speed, int rare, Type type)
+    {
+        stat_vitality = vitality;
+        stat_wisdom = wisdom;
+        stat_strength = strength;
+        stat_defense = defense;
+        stat_speed = speed;
+        rarity = rare;
+        this.type = type;
     }
 }

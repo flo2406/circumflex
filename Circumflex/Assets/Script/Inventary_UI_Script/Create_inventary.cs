@@ -6,17 +6,17 @@ using UnityEngine.UI;
 public class Create_inventary : MonoBehaviour
 {
     [SerializeField] private GameObject item;
-    private List<GameObject> inventary;
-    void Start()
+    [SerializeField] private GameObject list_inventary;
+    
+    void Awake()
     {
-        inventary = new List<GameObject>();
         for(int x = 0; x < 4; x++)
         {
             for(int y = 0; y < 6; y++)
             {
                 GameObject instance = Instantiate(item, gameObject.transform);
-                instance.transform.position += new Vector3(49 * x, -49 * y);
-                inventary.Add(instance);
+                instance.transform.position += new Vector3(35 * x, -35 * y);
+                list_inventary.GetComponent<List_Inventary>().inventary.Add(instance);
 
                 GameObject parent = gameObject.transform.parent.gameObject;
                 instance.GetComponent<Stat_Armor>().set_ui(parent);

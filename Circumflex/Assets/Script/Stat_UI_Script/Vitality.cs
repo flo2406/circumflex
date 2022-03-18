@@ -33,4 +33,10 @@ public class Vitality : MonoBehaviour
         To_Str();
     }
 
+    public void set_vitality_armor(int vit)
+    {
+        vitality_armor = vit;
+        To_Str();
+    }
+
 }

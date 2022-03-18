@@ -32,4 +32,10 @@ public class Speed : MonoBehaviour
         speed_competence += 1;
         To_Str();
     }
+    public void set_speed_armor(int spe)
+    {
+        speed_armor = spe;
+        To_Str();
+    }
+
 }
