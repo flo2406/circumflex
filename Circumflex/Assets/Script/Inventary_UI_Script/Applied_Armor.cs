@@ -28,7 +28,7 @@ public class Applied_Armor : MonoBehaviour
         stat_strength = 0;
         stat_defense = 0;
         stat_speed = 0;
-        rarity = 0;
+        rarity = -1;
         change_color();
 
         Transform[] children = ui.GetComponentsInChildren<Transform>();
@@ -43,6 +43,8 @@ public class Applied_Armor : MonoBehaviour
 
     void change_color()
     {
+        if (rarity == -1)
+            color.color = Color.white;
         if(rarity == 0)
             color.color = Color.grey;
         if (rarity == 1)
@@ -55,19 +57,19 @@ public class Applied_Armor : MonoBehaviour
 
     public void set_stat(int vitality, int wisdom, int strength, int defense, int speed, int rare, Type type)
     {
-        stat_vitality = vitality;
+        stat_vitality += vitality;
         competences_ui.GetComponentInChildren<Vitality>().set_vitality_armor(vitality);
 
-        stat_wisdom = wisdom;
+        stat_wisdom += wisdom;
         competences_ui.GetComponentInChildren<Wisdom>().set_wisdom_armor(wisdom);
 
-        stat_strength = strength;
+        stat_strength += strength;
         competences_ui.GetComponentInChildren<Strength>().set_strength_armor(strength);
 
-        stat_defense = defense;
+        stat_defense += defense;
         competences_ui.GetComponentInChildren<Defense>().set_defense_armor(defense);
 
-        stat_speed = speed;
+        stat_speed += speed;
         competences_ui.GetComponentInChildren<Speed>().set_speed_armor(speed);
 
         rarity = rare;
@@ -87,6 +89,31 @@ public class Applied_Armor : MonoBehaviour
 
         GameObject newDescription = Instantiate(description, description_ui.transform);
         ui.GetComponent<Description>().set_description(newDescription);
+    }
+
+    public int get_vit()
+    {
+        return stat_vitality;
+    }
+
+    public int get_wis()
+    {
+        return stat_wisdom;
+    }
+
+    public int get_str()
+    {
+        return stat_strength;
+    }
+
+    public int get_def()
+    {
+        return stat_defense;
+    }
+
+    public int get_spe()
+    {
+        return stat_speed;
     }
 
 }

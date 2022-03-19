@@ -1586,6 +1586,16 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4230732378258391083, guid: a93ff086c6d07fd4d8f2c7c386c3f0dc,
+        type: 3}
+      propertyPath: mat
+      value: 
+      objectReference: {fileID: 2100000, guid: 44ed6559f248fe340b14af2d5b87b233, type: 2}
+    - target: {fileID: 4230732378258391083, guid: a93ff086c6d07fd4d8f2c7c386c3f0dc,
+        type: 3}
+      propertyPath: basicMat
+      value: 
+      objectReference: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4968447437888417514, guid: a93ff086c6d07fd4d8f2c7c386c3f0dc,
         type: 3}
       propertyPath: m_Name

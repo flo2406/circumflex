@@ -30,7 +30,7 @@ public class Loot : MonoBehaviour
         defense = rarety * 20 + r.Next(100);
         speed = rarety * 20 + r.Next(100);
 
-        type = Type.SHIELD;
+        type = (Type) r.Next(2,8);
 
         int supp = r.Next(5);
 

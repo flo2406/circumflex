@@ -35,7 +35,7 @@ public class Strength : MonoBehaviour
 
     public void set_strength_armor(int str)
     {
-        strength_armor = str;
+        strength_armor += str;
         To_Str();
     }
 }

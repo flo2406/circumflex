@@ -44,22 +44,36 @@ public class Info_Storage : MonoBehaviour
         foreach (Transform child in children)
         {
             if (child.name == "Sword" && type == Type.SWORD)
-                child.gameObject.GetComponent<Applied_Armor>().set_stat(stat_vitality, stat_wisdom, stat_strength, stat_defense, stat_speed, rarity, type);
+                set_stat(child);
 
             else if (child.name == "Shield" && type == Type.SHIELD)
-                child.gameObject.GetComponent<Applied_Armor>().set_stat(stat_vitality, stat_wisdom, stat_strength, stat_defense, stat_speed, rarity, type);
+                set_stat(child);
 
             else if (child.name == "Belt" && type == Type.BELT)
-                child.gameObject.GetComponent<Applied_Armor>().set_stat(stat_vitality, stat_wisdom, stat_strength, stat_defense, stat_speed, rarity, type);
+                set_stat(child);
 
             else if (child.name == "Ring" && type == Type.RING)
-                child.gameObject.GetComponent<Applied_Armor>().set_stat(stat_vitality, stat_wisdom, stat_strength, stat_defense, stat_speed, rarity, type);
+                set_stat(child);
 
             else if (child.name == "Amulet" && type == Type.AMULET)
-                child.gameObject.GetComponent<Applied_Armor>().set_stat(stat_vitality, stat_wisdom, stat_strength, stat_defense, stat_speed, rarity, type);
+                set_stat(child);
 
             else if (child.name == "Helmet" && type == Type.HELMET)
-                child.gameObject.GetComponent<Applied_Armor>().set_stat(stat_vitality, stat_wisdom, stat_strength, stat_defense, stat_speed, rarity, type);
+                set_stat(child);
+
         }
+    }
+
+    void set_stat(Transform child)
+    {
+        int removeVit = child.gameObject.GetComponent<Applied_Armor>().get_vit();
+        int removeWis = child.gameObject.GetComponent<Applied_Armor>().get_wis();
+        int removeStr = child.gameObject.GetComponent<Applied_Armor>().get_str();
+        int removeDef = child.gameObject.GetComponent<Applied_Armor>().get_def();
+        int removeSpe = child.gameObject.GetComponent<Applied_Armor>().get_spe();
+
+        child.gameObject.GetComponent<Applied_Armor>().set_stat(stat_vitality - removeVit,
+                    stat_wisdom - removeWis, stat_strength - removeStr, stat_defense - removeDef,
+                    stat_speed - removeSpe, rarity, type);
     }
 }

@@ -35,7 +35,7 @@ public class Vitality : MonoBehaviour
 
     public void set_vitality_armor(int vit)
     {
-        vitality_armor = vit;
+        vitality_armor += vit;
         To_Str();
     }
 

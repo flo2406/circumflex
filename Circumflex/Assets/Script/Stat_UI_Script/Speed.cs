@@ -34,7 +34,7 @@ public class Speed : MonoBehaviour
     }
     public void set_speed_armor(int spe)
     {
-        speed_armor = spe;
+        speed_armor += spe;
         To_Str();
     }
 

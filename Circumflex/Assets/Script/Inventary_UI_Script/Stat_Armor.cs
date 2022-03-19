@@ -9,7 +9,6 @@ public enum Type
     SWORD,
     SHIELD,
     RING,
-    BOOTS,
     BELT,
     AMULET,
     HELMET,

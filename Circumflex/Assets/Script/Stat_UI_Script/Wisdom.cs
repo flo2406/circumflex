@@ -35,7 +35,7 @@ public class Wisdom : MonoBehaviour
 
     public void set_wisdom_armor(int wis)
     {
-        wisdom_armor = wis;
+        wisdom_armor += wis;
         To_Str();
     }
 }
