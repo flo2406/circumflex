@@ -17,6 +17,13 @@ public class Info_Storage : MonoBehaviour
     private GameObject ui;
     private GameObject armor_ui;
 
+    private GameObject item;
+
+    void Awake()
+    {
+        item = null;
+    }
+
     void Start()
     {
         ui = GameObject.FindGameObjectWithTag("UI");
@@ -40,43 +47,60 @@ public class Info_Storage : MonoBehaviour
         this.type = type;
     }
 
-    public void On_click_use()
+
+    public void On_click_delete()
     {
+        if (item != null)
+        {
+            item.GetComponent<Image>().color = Color.white;
+            item.GetComponent<Stat_Armor>().type = Type.NONE;
+            Destroy(gameObject);
+        }
+    }
+
+
+   Transform find_ui()
+   {
         Transform[] children = armor_ui.GetComponentsInChildren<Transform>();
         foreach (Transform child in children)
         {
             if (child.name == "Sword" && type == Type.SWORD)
-                get_stat(child);
+                return child;
 
-            else if (child.name == "Shield" && type == Type.SHIELD)
-                get_stat(child);
+            if (child.name == "Shield" && type == Type.SHIELD)
+                return child;
 
             else if (child.name == "Belt" && type == Type.BELT)
-                get_stat(child);
+                return child;
 
             else if (child.name == "Ring" && type == Type.RING)
-                get_stat(child);
+                return child;
 
             else if (child.name == "Amulet" && type == Type.AMULET)
-                get_stat(child);
+                return child;
 
             else if (child.name == "Helmet" && type == Type.HELMET)
-                get_stat(child);
-        }   
+                return child;
+        }
+        return null;
     }
 
-    void get_stat(Transform child)
+
+    public void On_click_use()
     {
-        int removeVit = child.gameObject.GetComponent<Applied_Armor>().get_vit();
-        int removeWis = child.gameObject.GetComponent<Applied_Armor>().get_wis();
-        int removeStr = child.gameObject.GetComponent<Applied_Armor>().get_str();
-        int removeDef = child.gameObject.GetComponent<Applied_Armor>().get_def();
-        int removeSpe = child.gameObject.GetComponent<Applied_Armor>().get_spe();
+        if (item != null)
+        {
+            item.GetComponent<Image>().color = Color.white;
+            item.GetComponent<Stat_Armor>().type = Type.NONE;
+        }
 
-        child.gameObject.GetComponent<Applied_Armor>().set_stat(stat_vitality - removeVit,
-                    stat_wisdom - removeWis, stat_strength - removeStr, stat_defense - removeDef,
-                    stat_speed - removeSpe, rarity, type);
+        Transform child = find_ui();
+        child.gameObject.GetComponent<Applied_Armor>().Restore_Item();
+        child.gameObject.GetComponent<Applied_Armor>().set_stat(stat_vitality, stat_wisdom , stat_strength, stat_defense, stat_speed, rarity, type);
+
+        Destroy(gameObject);
     }
+
 
     void make_description()
     {
@@ -151,7 +175,6 @@ public class Info_Storage : MonoBehaviour
 
     Text get_str(string str)
     {
-        Debug.Log(str);
         Text[] texts = gameObject.GetComponentsInChildren<Text>();
         foreach (Text text in texts)
         {
@@ -159,5 +182,10 @@ public class Info_Storage : MonoBehaviour
                 return text;
         }
         return null;
+    }
+
+    public void set_item(GameObject item)
+    {
+        this.item = item;
     }
 }

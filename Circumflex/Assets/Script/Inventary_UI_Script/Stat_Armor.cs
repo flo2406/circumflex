@@ -60,6 +60,7 @@ public class Stat_Armor : MonoBehaviour
 
             GameObject newDescription = Instantiate(description,parent);
             ui.GetComponent<Description>().set_description(newDescription);
+            newDescription.GetComponent<Info_Storage>().set_item(gameObject);
             newDescription.GetComponent<Info_Storage>().set_stat(stat_vitality, stat_wisdom, stat_strength, stat_defense, stat_speed, rarity, type);
         }
     }

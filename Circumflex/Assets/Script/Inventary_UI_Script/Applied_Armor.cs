@@ -29,6 +29,7 @@ public class Applied_Armor : MonoBehaviour
         stat_defense = 0;
         stat_speed = 0;
         rarity = -1;
+        type = Type.NONE;
         change_color();
 
         Transform[] children = ui.GetComponentsInChildren<Transform>();
@@ -87,9 +88,41 @@ public class Applied_Armor : MonoBehaviour
             ui.GetComponent<Description>().set_description(null);
         }
 
-        GameObject newDescription = Instantiate(description, description_ui.transform);
-        ui.GetComponent<Description>().set_description(newDescription);
+        if (type != Type.NONE)
+        {
+            GameObject newDescription = Instantiate(description, description_ui.transform);
+            ui.GetComponent<Description>().set_description(newDescription);
+            newDescription.GetComponent<Info_Storage>().set_stat(stat_vitality, stat_wisdom, stat_strength, stat_defense, stat_speed, rarity, type);
+
+            Transform[] val = newDescription.GetComponentsInChildren<Transform>();
+            foreach(Transform t in val)
+            {
+                if(t.gameObject.name == "Use")
+                    t.gameObject.active = false;
+                if(t.gameObject.name == "Delete")
+                    t.gameObject.active = false;
+            }
+        }
     }
+
+    public void Restore_Item()
+    {
+        if (type != Type.NONE)
+        {
+            GameObject list = GameObject.FindGameObjectWithTag("Inventary_Data");
+            foreach (GameObject item in list.GetComponent<List_Inventary>().inventary)
+            {
+                if (item.GetComponent<Stat_Armor>().type == Type.NONE)
+                {
+                    item.GetComponent<Image>().color = Color.yellow;
+                    item.GetComponent<Stat_Armor>().set_stat(stat_vitality, stat_wisdom, stat_strength, stat_defense, stat_speed, rarity, type);
+                    set_stat(-stat_vitality, -stat_wisdom, -stat_strength, -stat_defense, -stat_speed, -1, Type.NONE);
+                    break;
+                }
+            }
+        }
+    }
+
 
     public int get_vit()
     {
