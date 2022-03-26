@@ -727,6 +727,7 @@ GameObject:
   - component: {fileID: 8187028156945940666}
   - component: {fileID: 6117787632951937028}
   - component: {fileID: 4230732378258391083}
+  - component: {fileID: 691552273595547283}
   m_Layer: 0
   m_Name: Sword and Shield Animations
   m_TagString: Untagged
@@ -837,6 +838,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ennemy: {fileID: 7974426385427238766, guid: ff283afe8d5517d44b4b52a8363efd38, type: 3}
+  mat: {fileID: 0}
+  basicMat: {fileID: 0}
+--- !u!114 &691552273595547283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4968447437888417514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9632ce2107cfc4282cfbdc61b12d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 5289026420175270665, guid: 1d2279ef36842d04a87dcb103565c62c, type: 3}
 --- !u!1 &4968447437888417516
 GameObject:
   m_ObjectHideFlags: 0

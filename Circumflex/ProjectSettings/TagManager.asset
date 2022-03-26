@@ -8,6 +8,8 @@ TagManager:
   - Competences_ui
   - UI
   - Inventary_Data
+  - loot
+  - ennemi
   layers:
   - Default
   - TransparentFX

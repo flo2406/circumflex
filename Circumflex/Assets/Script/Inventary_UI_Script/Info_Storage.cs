@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Info_Storage : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Info_Storage : MonoBehaviour
             if (child.name == "Armor_UI")
                 armor_ui = child.gameObject;
         }
+        make_description();
     }
 
     public void set_stat(int vitality, int wisdom, int strength, int defense, int speed, int rare, Type type)
@@ -44,27 +46,26 @@ public class Info_Storage : MonoBehaviour
         foreach (Transform child in children)
         {
             if (child.name == "Sword" && type == Type.SWORD)
-                set_stat(child);
+                get_stat(child);
 
             else if (child.name == "Shield" && type == Type.SHIELD)
-                set_stat(child);
+                get_stat(child);
 
             else if (child.name == "Belt" && type == Type.BELT)
-                set_stat(child);
+                get_stat(child);
 
             else if (child.name == "Ring" && type == Type.RING)
-                set_stat(child);
+                get_stat(child);
 
             else if (child.name == "Amulet" && type == Type.AMULET)
-                set_stat(child);
+                get_stat(child);
 
             else if (child.name == "Helmet" && type == Type.HELMET)
-                set_stat(child);
-
-        }
+                get_stat(child);
+        }   
     }
 
-    void set_stat(Transform child)
+    void get_stat(Transform child)
     {
         int removeVit = child.gameObject.GetComponent<Applied_Armor>().get_vit();
         int removeWis = child.gameObject.GetComponent<Applied_Armor>().get_wis();
@@ -75,5 +76,88 @@ public class Info_Storage : MonoBehaviour
         child.gameObject.GetComponent<Applied_Armor>().set_stat(stat_vitality - removeVit,
                     stat_wisdom - removeWis, stat_strength - removeStr, stat_defense - removeDef,
                     stat_speed - removeSpe, rarity, type);
+    }
+
+    void make_description()
+    {
+        string begin = "stat_";
+        int i = 1;
+        if(stat_vitality > 0)
+        {
+            Text t = get_str(begin + i);
+            t.text = "+ " + stat_vitality + " vitality";
+            i++;
+        }
+        if (stat_wisdom > 0)
+        {
+            Text t = get_str(begin + i);
+            t.text = "+ " + stat_wisdom + " wisdom";
+            i++;
+        }
+        if (stat_strength > 0)
+        {
+            Text t = get_str(begin + i);
+            t.text = "+ " + stat_strength + " strength";
+            i++;
+        }
+        if (stat_defense > 0)
+        {
+            Text t = get_str(begin + i);
+            t.text = "+ " + stat_defense + " defense";
+            i++;
+        }
+        if (stat_speed > 0)
+        {
+            Text t = get_str(begin + i);
+            t.text = "+ " + stat_speed + " speed";
+            i++;
+        }
+
+        Text t2 = get_str("Name");
+        
+        switch(type)
+        {
+            case Type.SWORD:
+                t2.text = "Sword";
+                break;
+
+            case Type.SHIELD:
+                t2.text = "Shield";
+                break;
+
+            case Type.BELT:
+                t2.text = "Belt";
+                break;
+
+            case Type.RING:
+                t2.text = "Ring";
+                break;
+
+            case Type.AMULET:
+                t2.text = "Amulet";
+                break;
+
+            case Type.HELMET:
+                t2.text = "Helmet";
+                break;
+
+            default:
+                break;
+
+        }
+
+
+    }
+
+    Text get_str(string str)
+    {
+        Debug.Log(str);
+        Text[] texts = gameObject.GetComponentsInChildren<Text>();
+        foreach (Text text in texts)
+        {
+            if (text.gameObject.name == str)
+                return text;
+        }
+        return null;
     }
 }

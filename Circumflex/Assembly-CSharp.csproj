@@ -65,8 +65,10 @@
      <Compile Include="Assets\Script\Inventary_UI_Script\Stat_Armor.cs" />
      <Compile Include="Assets\Script\Move_Script\Animation.cs" />
      <Compile Include="Assets\Script\Move_Script\CamMoving.cs" />
+     <Compile Include="Assets\Script\Move_Script\Dammages.cs" />
      <Compile Include="Assets\Script\Move_Script\Lootage.cs" />
      <Compile Include="Assets\Script\Move_Script\PlayerControl.cs" />
+     <Compile Include="Assets\Script\Move_Script\Throw_attack.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Defense.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Level.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Name.cs" />
