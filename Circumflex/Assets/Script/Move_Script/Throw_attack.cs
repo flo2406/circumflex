@@ -5,31 +5,38 @@ using UnityEngine;
 public class Throw_attack : MonoBehaviour
 {
     [SerializeField] GameObject attack;
+    
     private float nextBomb;
     private float BombPoser;
+
+    private float have_to_throw;
+
     private int forceForward;
 
     void Start()
     {
-        nextBomb = 0.5f;
-        BombPoser = 0.5f;
-        forceForward = 30000;
+        nextBomb = 0f;
+        BombPoser = 0.92f;
+        have_to_throw = 0;
+
+        forceForward = 10000;
     }
 
 
     void Update()
     {
-        float espace = Input.GetAxis("Jump");
-
-        if (espace != 0 && Time.time > nextBomb)
+        if (Time.time > have_to_throw && have_to_throw != 0)
         {
-            nextBomb = Time.time + BombPoser;
-
-            GameObject clone = Instantiate(attack, new Vector3 (transform.position.x,50,transform.position.z), transform.rotation);
-
+            GameObject clone = Instantiate(attack, new Vector3(transform.position.x, transform.position.y + 10, transform.position.z), transform.rotation);
             Vector3 val = transform.TransformDirection(Vector3.forward * forceForward);
-
             clone.GetComponent<Rigidbody>().AddForce(val);
+            have_to_throw = 0;
+            nextBomb = Time.time + BombPoser;
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.Space) && Time.time > nextBomb && have_to_throw == 0)
+                have_to_throw = Time.time + 0.47f;
         }
     }
 }

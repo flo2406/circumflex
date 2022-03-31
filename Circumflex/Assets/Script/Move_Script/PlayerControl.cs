@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
-        speed = 100f;
+        speed = 5f;
         targetPosition = transform.position;
         release = true;
     }
@@ -23,7 +23,6 @@ public class PlayerControl : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             Physics.Raycast(cam.transform.position,ray.direction,out hit, 1000);
             targetPosition = hit.point;
-            targetPosition.y = 0;
             release = false;
         }
         if(!Input.GetMouseButton(0))
@@ -31,12 +30,13 @@ public class PlayerControl : MonoBehaviour
 
         if ((targetPosition - transform.position).magnitude > 2)
         {
+            targetPosition.y = transform.position.y;
             Vector3 relativePos = targetPosition - transform.position;
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 300 * Time.deltaTime);
 
             transform.position += (targetPosition - transform.position).normalized * speed * Time.deltaTime;
-            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+            //transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         }
     }
 
