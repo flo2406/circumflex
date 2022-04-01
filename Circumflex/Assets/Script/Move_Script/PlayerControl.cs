@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
-        speed = 50f;
+        speed = 5f;
         targetPosition = transform.position;
         release = true;
     }

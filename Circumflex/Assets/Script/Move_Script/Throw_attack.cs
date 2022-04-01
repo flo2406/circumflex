@@ -19,16 +19,15 @@ public class Throw_attack : MonoBehaviour
         BombPoser = 0.92f;
         have_to_throw = 0;
 
-        forceForward = 10000;
+        forceForward = 1000;
     }
 
 
     void Update()
     {
         if (Time.time > have_to_throw && have_to_throw != 0)
-        //if(Time.time > have_to_throw)
         {
-            GameObject clone = Instantiate(attack, new Vector3(transform.position.x, transform.position.y + 10, transform.position.z), transform.rotation);
+            GameObject clone = Instantiate(attack, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), transform.rotation); 
             Vector3 val = transform.TransformDirection(Vector3.forward * forceForward);
             clone.GetComponent<Rigidbody>().AddForce(val);
             have_to_throw = 0;

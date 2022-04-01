@@ -6,16 +6,18 @@ public class CamMoving : MonoBehaviour
 {
     [SerializeField] private Transform perso;
     private float difX;
+    private float difY;
     private float difZ;
 
     void Start()
     {
         difX = transform.position.x - perso.position.x;
+        difY = transform.position.y - perso.position.y;
         difZ = transform.position.z - perso.position.z;
     }
 
     void Update()
     {
-        transform.position = new Vector3(perso.position.x + difX, transform.position.y, perso.position.z + difZ);
+        transform.position = new Vector3(perso.position.x + difX, perso.position.y + difY, perso.position.z + difZ);
     }
 }
