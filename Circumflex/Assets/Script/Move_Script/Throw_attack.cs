@@ -26,6 +26,7 @@ public class Throw_attack : MonoBehaviour
     void Update()
     {
         if (Time.time > have_to_throw && have_to_throw != 0)
+        //if(Time.time > have_to_throw)
         {
             GameObject clone = Instantiate(attack, new Vector3(transform.position.x, transform.position.y + 10, transform.position.z), transform.rotation);
             Vector3 val = transform.TransformDirection(Vector3.forward * forceForward);
