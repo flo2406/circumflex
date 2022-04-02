@@ -98,9 +98,9 @@ public class Applied_Armor : MonoBehaviour
             foreach(Transform t in val)
             {
                 if(t.gameObject.name == "Use")
-                    t.gameObject.active = false;
+                    t.gameObject.SetActive(false);
                 if(t.gameObject.name == "Delete")
-                    t.gameObject.active = false;
+                    t.gameObject.SetActive(false);
             }
         }
     }

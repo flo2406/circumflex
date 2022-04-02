@@ -1901,6 +1901,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mutant_Ennemi
       objectReference: {fileID: 0}
+    - target: {fileID: 4209579024617303337, guid: 15778279e264c684aa9ffd19411fa640,
+        type: 3}
+      propertyPath: gestion_Barre
+      value: 
+      objectReference: {fileID: 5458704057941477188}
     - target: {fileID: 4559324193852235106, guid: 15778279e264c684aa9ffd19411fa640,
         type: 3}
       propertyPath: m_TagString
@@ -7515,13 +7520,28 @@ GameObject:
   - component: {fileID: 5458704057941477184}
   - component: {fileID: 5458704057941477185}
   - component: {fileID: 5458704057941477186}
+  - component: {fileID: 5458704057941477188}
   m_Layer: 5
   m_Name: Barre
-  m_TagString: Untagged
+  m_TagString: barre
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5458704057941477188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5458704057941477187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282796144c59e8947ba620556c3ded3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health_barre: {fileID: 5458704057374934221}
+  mana_barre: {fileID: 5458704058417321203}
 --- !u!224 &5458704057941477191
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7855,7 +7875,6 @@ GameObject:
   - component: {fileID: 5458704058417321212}
   - component: {fileID: 5458704058417321202}
   - component: {fileID: 5458704058417321203}
-  - component: {fileID: 5458704058417321214}
   m_Layer: 5
   m_Name: Manabar
   m_TagString: Untagged
@@ -7863,18 +7882,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5458704058417321214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458704058417321213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2050b623438a7c4e8ba466ec42d4f30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &5500223321752323714
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ TagManager:
   - Inventary_Data
   - loot
   - ennemi
+  - barre
   layers:
   - Default
   - TransparentFX

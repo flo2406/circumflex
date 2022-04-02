@@ -24,7 +24,8 @@ public class Dammages : MonoBehaviour
         if (other.gameObject.tag == "ennemi")
         {
             AI ai = other.gameObject.GetComponent<AI>();
-            ai.make_dammages(dammage);
+            if(ai != null)
+                ai.make_dammages(dammage);
         }
     }
 }

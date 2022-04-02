@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Name : MonoBehaviour
 {
-    private string name;
+    private string perso_name;
     private Text text;
 
     void Start()
@@ -16,7 +16,7 @@ public class Name : MonoBehaviour
 
     public void set_and_write_Name(string nom)
     {
-        name = nom;
-        text.text = name;
+        perso_name = nom;
+        text.text = nom;
     }
 }

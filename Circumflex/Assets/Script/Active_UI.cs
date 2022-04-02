@@ -9,8 +9,8 @@ public class Active_UI : MonoBehaviour
 
     void Start()
     {
-        UI.active = false;
-        Player.active = true;
+        UI.SetActive(false);
+        Player.SetActive(true);
     }
 
     void Update()
@@ -24,15 +24,15 @@ public class Active_UI : MonoBehaviour
                 UI.GetComponent<Description>().set_description(null);
             }
 
-            if (UI.active)
+            if (UI.activeSelf)
             {
-                UI.active = false;
-                Player.active = true;
+                UI.SetActive(false);
+                Player.SetActive(true);
             }
             else
             {
-                UI.active = true;
-                Player.active = false;
+                UI.SetActive(true);
+                Player.SetActive(false);
             }
         }
     }
