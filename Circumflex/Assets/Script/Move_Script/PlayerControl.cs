@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
-        speed = 5f;
+        speed = 10f;
         targetPosition = transform.position;
         release = true;
     }
@@ -28,15 +28,14 @@ public class PlayerControl : MonoBehaviour
         if(!Input.GetMouseButton(0))
             release = true;
 
-        if ((targetPosition - transform.position).magnitude > 2)
+        if ((targetPosition - transform.position).magnitude > 0.1f)
         {
             targetPosition.y = transform.position.y;
             Vector3 relativePos = targetPosition - transform.position;
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 300 * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 500 * Time.deltaTime);
 
             transform.position += (targetPosition - transform.position).normalized * speed * Time.deltaTime;
-            //transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         }
     }
 

@@ -1901,6 +1901,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mutant_Ennemi
       objectReference: {fileID: 0}
+    - target: {fileID: 4559324193852235106, guid: 15778279e264c684aa9ffd19411fa640,
+        type: 3}
+      propertyPath: m_TagString
+      value: ennemi
+      objectReference: {fileID: 0}
     - target: {fileID: 6454276988181718724, guid: 15778279e264c684aa9ffd19411fa640,
         type: 3}
       propertyPath: m_RootOrder
@@ -3196,7 +3201,7 @@ GameObject:
   - component: {fileID: 601582731376423765}
   m_Layer: 8
   m_Name: Perso
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

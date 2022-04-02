@@ -8,32 +8,100 @@ using Random = UnityEngine.Random;
 public class AI : MonoBehaviour
 {
     private NavMeshAgent agent;
-    //private float sante;
-    private int range;
+    private int rangeFollow;
+    private float rangeAttack;
 
     [SerializeField] private LayerMask playerMask;
+
+
+    private Animator animator;
+    private int IsWalkingHash;
+    private int IsPunchingHash;
+    private float start_punch_anim;
+    private float end_punch_anim;
+
+    private float sante;
+    [SerializeField] private GameObject loot;
 
 
     public void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        //sante = 100;
-        range = 120;
+        sante = 100;
+        rangeFollow = 120;
+        rangeAttack = 2f;
+
+        animator = GetComponent<Animator>();
+        IsWalkingHash = Animator.StringToHash("walk");
+        IsPunchingHash = Animator.StringToHash("punch");
+        start_punch_anim = -1;
+        end_punch_anim = -1;
     }
 
     public void Update()
     {
-        Collider[] players_collider = Physics.OverlapSphere(transform.position, range, playerMask);
+        Collider[] players_collider = Physics.OverlapSphere(transform.position, rangeFollow, playerMask);
+        Collider[] players_near = Physics.OverlapSphere(transform.position, rangeAttack, playerMask);
 
-        if (players_collider.Length != 0)
+        if(players_near.Length != 0)
+        {
+            Transform player = players_collider[0].transform;
+            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
+            agent.SetDestination(transform.position);
+
+            animator.SetBool(IsWalkingHash, false);
+            animator.SetBool(IsPunchingHash, true);
+
+            if (end_punch_anim != -1)
+            {
+                player.gameObject.GetComponent<Animation>().clear_hit_anim();
+                if (Time.time > end_punch_anim + 1f)
+                    end_punch_anim = -1;
+            }
+
+            else if (start_punch_anim != -1 && Time.time > start_punch_anim + 1f)
+            {
+                start_punch_anim = -1;
+                end_punch_anim = Time.time;
+                player.gameObject.GetComponent<Animation>().throw_hit_anim();
+            }
+            else if (start_punch_anim == -1)
+                start_punch_anim = Time.time;
+
+        }
+
+        else if (players_collider.Length != 0)
         {
             Transform player = players_collider[0].transform;
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
             agent.SetDestination(new Vector3(player.position.x, transform.position.y, player.position.z));
+
+            animator.SetBool(IsWalkingHash, true);
+            animator.SetBool(IsPunchingHash, false);
+            
+            start_punch_anim = -1;
+            end_punch_anim = -1;
         }
         else
         {
             agent.SetDestination(transform.position);
+
+            animator.SetBool(IsWalkingHash, false);
+            animator.SetBool(IsPunchingHash, false);
+            
+            start_punch_anim = -1;
+            end_punch_anim = -1;
+        }
+    }
+
+    
+    public void make_dammages(float dammages)
+    {
+        sante -= dammages;
+        if(sante <= 0)
+        {
+            Destroy(gameObject);
+            Instantiate(loot,new Vector3 (transform.position.x, transform.position.y + 2.5f, transform.position.z), Quaternion.identity);
         }
     }
 

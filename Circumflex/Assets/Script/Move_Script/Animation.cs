@@ -9,6 +9,7 @@ public class Animation : MonoBehaviour
     private int IsWalkingHash;
     private int IsThrowingHash;
     private int IsSlashingHash;
+    private int IsHittingHash;
 
     private bool is_throw;
     private float throw_time; 
@@ -18,6 +19,7 @@ public class Animation : MonoBehaviour
         IsWalkingHash = Animator.StringToHash("walk");
         IsThrowingHash = Animator.StringToHash("throw");
         IsSlashingHash = Animator.StringToHash("slash");
+        IsHittingHash = Animator.StringToHash("hit");
 
         is_throw = false;
         throw_time = Time.time;
@@ -49,10 +51,19 @@ public class Animation : MonoBehaviour
         else
         {
             animator.SetBool(IsThrowingHash, false);
-            if ((target_position - control.gameObject.transform.position).magnitude > 2)
+            if ((target_position - control.gameObject.transform.position).magnitude > 0.1f)
                 animator.SetBool(IsWalkingHash, true);
             else
                 animator.SetBool(IsWalkingHash, false);
         }
+    }
+
+    public void throw_hit_anim()
+    {
+        animator.SetBool(IsHittingHash, true);
+    }
+    public void clear_hit_anim()
+    {
+        animator.SetBool(IsHittingHash, false);
     }
 }

@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Dammages : MonoBehaviour
 {
-    [SerializeField] private GameObject loot;
     private float begin;
+    private float dammage;
 
     void Start()
     {
         begin = Time.time;
+        dammage = 50;
     }
 
     void Update()
@@ -22,8 +23,8 @@ public class Dammages : MonoBehaviour
     {
         if (other.gameObject.tag == "ennemi")
         {
-            Destroy(other.gameObject);
-            Instantiate(loot,transform.position,transform.rotation);
+            AI ai = other.gameObject.GetComponent<AI>();
+            ai.make_dammages(dammage);
         }
     }
 }

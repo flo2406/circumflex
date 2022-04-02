@@ -56,8 +56,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\AI_Script\AI.cs" />
-     <Compile Include="Assets\Script\AI_Script\AI_anim.cs" />
      <Compile Include="Assets\Script\Active_UI.cs" />
+     <Compile Include="Assets\Script\Health_Mana_Script\Gestion_Barre.cs" />
      <Compile Include="Assets\Script\Health_Mana_Script\Mana.cs" />
      <Compile Include="Assets\Script\Inventary_UI_Script\Applied_Armor.cs" />
      <Compile Include="Assets\Script\Inventary_UI_Script\Create_inventary.cs" />
