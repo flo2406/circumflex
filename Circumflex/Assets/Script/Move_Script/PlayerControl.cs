@@ -1,9 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerControl : MonoBehaviour
 {
-    private float speed;
+    //private float speed;
     [SerializeField] private Camera cam;
     private Vector3 targetPosition;
 
@@ -12,13 +13,17 @@ public class PlayerControl : MonoBehaviour
 
     private GameObject see_ennemy;
 
+    private NavMeshAgent agent;
+
     void Start()
     {
-        speed = 10f;
+        //speed = 10f;
         targetPosition = transform.position;
 
         attack_ennemy = null;
         see_ennemy = null;
+
+        agent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
@@ -50,7 +55,12 @@ public class PlayerControl : MonoBehaviour
             RaycastHit hit_ennemy;
 
             if (Physics.Raycast(cam.transform.position, ray.direction, out hit_ennemy, 1000, ennemy_layer))
-                attack_ennemy = hit_ennemy.transform.gameObject;
+            {
+                if (Input.GetMouseButtonDown(0))
+                    attack_ennemy = hit_ennemy.transform.gameObject;
+                else
+                    targetPosition = hit_ennemy.point;
+            }
 
             else
             {
@@ -62,24 +72,33 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-
         if (attack_ennemy != null)
+        {  
             targetPosition = attack_ennemy.transform.position;
-
-        if((targetPosition - transform.position).magnitude > 0.1f)
-        {
             targetPosition.y = transform.position.y;
+
+            if ((targetPosition - transform.position).magnitude < 3f)
+            {
+                Debug.Log("Anim");
+                gameObject.GetComponent<Animations>().set_slash_anim(attack_ennemy);
+                attack_ennemy = null;
+            }
+        }
+
+        if ((targetPosition - transform.position).magnitude > 0.1f)
+        {
+            /*targetPosition.y = transform.position.y;
             Vector3 relativePos = targetPosition - transform.position;
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 500 * Time.deltaTime);
 
-            transform.position += (targetPosition - transform.position).normalized * speed * Time.deltaTime;
+            transform.position += (targetPosition - transform.position).normalized * speed * Time.deltaTime;*/
+
+            targetPosition.y = transform.position.y;
+            agent.SetDestination(targetPosition);
         }
 
-        else if(attack_ennemy != null)
-        {
-            Debug.Log("Hit now");
-        }
+
     }
 
     public Vector3 get_TargetPosition()

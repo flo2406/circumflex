@@ -32,6 +32,7 @@ public class AI : MonoBehaviour
         rangeFollow = 120;
         rangeAttack = 2f;
 
+
         animator = GetComponent<Animator>();
         IsWalkingHash = Animator.StringToHash("walk");
         IsPunchingHash = Animator.StringToHash("punch");
@@ -46,10 +47,10 @@ public class AI : MonoBehaviour
         Collider[] players_collider = Physics.OverlapSphere(transform.position, rangeFollow, playerMask);
         Collider[] players_near = Physics.OverlapSphere(transform.position, rangeAttack, playerMask);
 
-        if(players_near.Length != 0)
+        if (players_near.Length != 0)
         {
             Transform player = players_collider[0].transform;
-            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
+            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));           
             agent.SetDestination(transform.position);
 
             animator.SetBool(IsWalkingHash, false);
@@ -93,7 +94,7 @@ public class AI : MonoBehaviour
     {
         if (end_punch_anim != -1)
         {
-            player.gameObject.GetComponent<Animation>().clear_hit_anim();
+            player.gameObject.GetComponent<Animations>().clear_hit_anim();
             if (Time.time > end_punch_anim + 1f)
                 end_punch_anim = -1;
         }
@@ -104,7 +105,7 @@ public class AI : MonoBehaviour
             {
                 start_punch_anim = -1;
                 end_punch_anim = Time.time;
-                player.gameObject.GetComponent<Animation>().throw_hit_anim();
+                player.gameObject.GetComponent<Animations>().throw_hit_anim();
                 gestion_Barre.make_damages(50f);
             }
             else
