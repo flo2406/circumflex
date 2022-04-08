@@ -5,14 +5,18 @@ using UnityEngine;
 public class Active_Shield : MonoBehaviour
 {
     [SerializeField] private GameObject shield;
-    private GameObject gameObject_shield;
+    private KeyCode keyCode;
     void Start()
     {
-        gameObject_shield = Instantiate(shield, transform.position, Quaternion.identity);
+        shield.SetActive(false);
+        keyCode = KeyCode.Z;
     }
 
     void Update()
     {
-        gameObject_shield.transform.position = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+        if(Input.GetKeyDown(keyCode))
+        {
+            shield.SetActive(!shield.activeSelf);
+        }
     }
 }

@@ -55,10 +55,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
+     <Compile Include="Assets\Prefabs\QuickOutline\Scripts\Outline.cs" />
      <Compile Include="Assets\Script\AI_Script\AI.cs" />
      <Compile Include="Assets\Script\Active_UI.cs" />
      <Compile Include="Assets\Script\Attacks_Script\Active_Shield.cs" />
+     <Compile Include="Assets\Script\Attacks_Script\Active_Tornado.cs" />
      <Compile Include="Assets\Script\Attacks_Script\Throw_attack.cs" />
      <Compile Include="Assets\Script\Health_Mana_Script\Gestion_Barre.cs" />
      <Compile Include="Assets\Script\Inventary_UI_Script\Applied_Armor.cs" />
@@ -81,10 +82,10 @@
      <Compile Include="Assets\Script\Stat_UI_Script\Strength.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Vitality.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Wisdom.cs" />
-     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
+     <None Include="Assets\Prefabs\QuickOutline\Resources\Shaders\OutlineMask.shader" />
      <None Include="Assets\Prefabs\MagicEffectsPackFree\ReadMe.txt" />
-     <None Include="Assets\QuickOutline\Readme.txt" />
-     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
+     <None Include="Assets\Prefabs\QuickOutline\Readme.txt" />
+     <None Include="Assets\Prefabs\QuickOutline\Resources\Shaders\OutlineFill.shader" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.19f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

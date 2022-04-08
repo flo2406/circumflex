@@ -13,6 +13,8 @@ public class Throw_attack : MonoBehaviour
 
     private int forceForward;
 
+    private KeyCode keyCode;
+
     void Start()
     {
         nextBomb = 0f;
@@ -20,6 +22,8 @@ public class Throw_attack : MonoBehaviour
         have_to_throw = 0;
 
         forceForward = 1000;
+
+        keyCode = KeyCode.A;
     }
 
 
@@ -35,7 +39,7 @@ public class Throw_attack : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.Space) && Time.time > nextBomb && have_to_throw == 0)
+            if (Input.GetKey(keyCode) && Time.time > nextBomb && have_to_throw == 0)
                 have_to_throw = Time.time + 0.47f;
         }
     }
