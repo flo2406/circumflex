@@ -10,14 +10,17 @@ public class Animations : MonoBehaviour
     private int IsThrowingHash;
     private int IsSlashingHash;
     private int IsHittingHash;
-
-    private bool is_throw;
-    private float throw_time;
+    private int IsLaserHash;
 
     private bool is_slash;
     private float slash_time;
 
     private GameObject ennemy;
+
+    private bool is_throw;
+    private float throw_time;
+    private bool is_sent;
+    [SerializeField] private GameObject mechanics;
 
     void Start()
     {
@@ -27,7 +30,7 @@ public class Animations : MonoBehaviour
         IsHittingHash = Animator.StringToHash("hit");
 
         is_throw = false;
-        throw_time = Time.time;
+        throw_time = 0;
 
         is_slash = false;
         slash_time = 0;
@@ -42,7 +45,7 @@ public class Animations : MonoBehaviour
         bool isThrowing = animator.GetBool(IsThrowingHash);
         bool isSlashing = animator.GetBool(IsSlashingHash);
 
-        if(is_slash)
+        if (is_slash)
         {
             if (slash_time == 0)
                 slash_time = Time.time;
@@ -56,22 +59,30 @@ public class Animations : MonoBehaviour
         }
 
 
-        if(is_throw)
+        else if (is_throw)
         {
-            if(Time.time > throw_time + 1)
+            if (throw_time == 0)
+            {
+                is_sent = false;
+                throw_time = Time.time;
+            }
+            else if (Time.time > throw_time + 0.5f && !is_sent)
+            {
+                is_sent = true;
+
+                mechanics.GetComponent<Fireball>().send_attack();
+            }
+
+            else if (Time.time > throw_time + 1.4f)
+            {
+                throw_time = 0;
                 is_throw = false;
+                clear_throw_anim();
+            }
         }
 
-        else if (Input.GetKey(KeyCode.Space))
-        {
-            animator.SetBool(IsThrowingHash, true);
-            animator.SetBool(IsWalkingHash, false);
-            is_throw = true;
-            throw_time = Time.time;
-        }
         else
         {
-            animator.SetBool(IsThrowingHash, false);
             if ((target_position - control.gameObject.transform.position).magnitude > 0.1f)
                 animator.SetBool(IsWalkingHash, true);
             else
@@ -79,7 +90,7 @@ public class Animations : MonoBehaviour
         }
     }
 
-    public void throw_hit_anim()
+    public void set_hit_anim()
     {
         animator.SetBool(IsHittingHash, true);
     }
@@ -87,6 +98,7 @@ public class Animations : MonoBehaviour
     {
         animator.SetBool(IsHittingHash, false);
     }
+
 
     public void set_slash_anim(GameObject ennemy)
     {
@@ -100,4 +112,17 @@ public class Animations : MonoBehaviour
         animator.SetBool(IsWalkingHash, true);
         animator.SetBool(IsSlashingHash, false);
     }
+
+    public void set_throw_anim(string ele)
+    {
+        animator.SetBool(IsThrowingHash, true);
+        is_throw = true;
+    }
+
+    public void clear_throw_anim()
+    {
+        animator.SetBool(IsWalkingHash, true);
+        animator.SetBool(IsThrowingHash, false);
+    }
+
 }

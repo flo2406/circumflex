@@ -105,7 +105,7 @@ public class AI : MonoBehaviour
             {
                 start_punch_anim = -1;
                 end_punch_anim = Time.time;
-                player.gameObject.GetComponent<Animations>().throw_hit_anim();
+                player.gameObject.GetComponent<Animations>().set_hit_anim();
                 gestion_Barre.make_damages(50f);
             }
             else

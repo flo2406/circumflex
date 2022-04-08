@@ -20,7 +20,7 @@ public class Lootage : MonoBehaviour
         if (other.gameObject.tag == "loot")
         {
             other.gameObject.GetComponent<MeshRenderer>().material = mat;
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.Space))
             {
                 other.gameObject.GetComponent<Loot>().add_in_inventory();
                 Destroy(other.gameObject);
