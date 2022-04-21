@@ -17,7 +17,6 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
-        //speed = 10f;
         targetPosition = transform.position;
 
         attack_ennemy = null;
@@ -79,7 +78,6 @@ public class PlayerControl : MonoBehaviour
 
             if ((targetPosition - transform.position).magnitude < 3f)
             {
-                Debug.Log("Anim");
                 gameObject.GetComponent<Animations>().set_slash_anim(attack_ennemy);
                 attack_ennemy = null;
             }
@@ -87,12 +85,8 @@ public class PlayerControl : MonoBehaviour
 
         if ((targetPosition - transform.position).magnitude > 0.1f)
         {
-            /*targetPosition.y = transform.position.y;
-            Vector3 relativePos = targetPosition - transform.position;
-            Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 500 * Time.deltaTime);
-
-            transform.position += (targetPosition - transform.position).normalized * speed * Time.deltaTime;*/
+            GameObject stat = GameObject.FindWithTag("stat");
+            agent.speed = stat.GetComponent<Stats>().get_vitality() / 10;
 
             targetPosition.y = transform.position.y;
             agent.SetDestination(targetPosition);

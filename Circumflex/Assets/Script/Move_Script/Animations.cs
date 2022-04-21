@@ -11,6 +11,7 @@ public class Animations : MonoBehaviour
     private int IsSlashingHash;
     private int IsHittingHash;
     private int IsLaserHash;
+    private int IsSpinningHash;
 
     private bool is_slash;
     private float slash_time;
@@ -28,6 +29,7 @@ public class Animations : MonoBehaviour
         IsThrowingHash = Animator.StringToHash("throw");
         IsSlashingHash = Animator.StringToHash("slash");
         IsHittingHash = Animator.StringToHash("hit");
+        IsSpinningHash = Animator.StringToHash("spin");
 
         is_throw = false;
         throw_time = 0;
@@ -123,6 +125,16 @@ public class Animations : MonoBehaviour
     {
         animator.SetBool(IsWalkingHash, true);
         animator.SetBool(IsThrowingHash, false);
+    }
+
+    public void set_tornado_anim()
+    {
+        animator.SetBool(IsSpinningHash, true);
+    }
+
+    public void clear_tornado_anim()
+    {
+        animator.SetBool(IsSpinningHash, false);
     }
 
 }

@@ -31,6 +31,9 @@ public class Speed : MonoBehaviour
         nb_Points.use_points();
         speed_competence += 1;
         To_Str();
+
+        GameObject stat = GameObject.FindWithTag("stat");
+        stat.GetComponent<Stats>().set_vitality(speed_armor + speed_competence);
     }
     public void set_speed_armor(int spe)
     {

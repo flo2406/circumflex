@@ -11,9 +11,9 @@ public class CamMoving : MonoBehaviour
 
     void Start()
     {
-        difX = transform.position.x - perso.position.x;
-        difY = transform.position.y - perso.position.y;
-        difZ = transform.position.z - perso.position.z;
+        difX = -12.2f;
+        difY = 10.42f;
+        difZ = -0.2f;
     }
 
     void Update()

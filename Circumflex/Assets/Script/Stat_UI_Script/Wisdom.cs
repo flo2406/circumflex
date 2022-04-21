@@ -31,11 +31,17 @@ public class Wisdom : MonoBehaviour
         nb_Points.use_points();
         wisdom_competence += 1;
         To_Str();
+
+        GameObject stat = GameObject.FindWithTag("stat");
+        stat.GetComponent<Stats>().set_vitality(wisdom_armor + wisdom_competence);
     }
 
     public void set_wisdom_armor(int wis)
     {
         wisdom_armor += wis;
         To_Str();
+
+        GameObject stat = GameObject.FindWithTag("stat");
+        stat.GetComponent<Stats>().set_vitality(wisdom_armor + wisdom_competence);
     }
 }

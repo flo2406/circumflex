@@ -31,12 +31,18 @@ public class Vitality : MonoBehaviour
         nb_Points.use_points();
         vitality_competence += 5;
         To_Str();
+
+        GameObject stat = GameObject.FindWithTag("stat");
+        stat.GetComponent<Stats>().set_vitality(vitality_armor + vitality_competence);
     }
 
     public void set_vitality_armor(int vit)
     {
         vitality_armor += vit;
         To_Str();
+
+        GameObject stat = GameObject.FindWithTag("stat");
+        stat.GetComponent<Stats>().set_vitality(vitality_armor + vitality_competence);
     }
 
 }

@@ -80,6 +80,7 @@
      <Compile Include="Assets\Script\Stat_UI_Script\Name.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Nb_Points.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Speed.cs" />
+     <Compile Include="Assets\Script\Stat_UI_Script\Stats.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Strength.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Vitality.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Wisdom.cs" />

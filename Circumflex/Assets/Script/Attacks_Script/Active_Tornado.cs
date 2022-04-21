@@ -15,8 +15,14 @@ public class Active_Tornado : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(keyCode))
+        {
+            gameObject.GetComponentInParent<Animations>().set_tornado_anim();
             tornado.SetActive(true);
+        }
         else
+        {
+            gameObject.GetComponentInParent<Animations>().clear_tornado_anim();
             tornado.SetActive(false);
+        }
     }
 }

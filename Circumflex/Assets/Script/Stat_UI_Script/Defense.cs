@@ -31,11 +31,17 @@ public class Defense : MonoBehaviour
         nb_Points.use_points();
         defense_competence += 1;
         To_Str();
+
+        GameObject stat = GameObject.FindWithTag("stat");
+        stat.GetComponent<Stats>().set_vitality(defense_armor + defense_competence);
     }
 
     public void set_defense_armor(int def)
     {
         defense_armor += def;
         To_Str();
+
+        GameObject stat = GameObject.FindWithTag("stat");
+        stat.GetComponent<Stats>().set_vitality(defense_armor + defense_competence);
     }
 }

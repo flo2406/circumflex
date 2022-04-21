@@ -31,11 +31,17 @@ public class Strength : MonoBehaviour
         nb_Points.use_points();
         strength_competence += 1;
         To_Str();
+
+        GameObject stat = GameObject.FindWithTag("stat");
+        stat.GetComponent<Stats>().set_vitality(strength_armor + strength_competence);
     }
 
     public void set_strength_armor(int str)
     {
         strength_armor += str;
         To_Str();
+
+        GameObject stat = GameObject.FindWithTag("stat");
+        stat.GetComponent<Stats>().set_vitality(strength_armor + strength_competence);
     }
 }
