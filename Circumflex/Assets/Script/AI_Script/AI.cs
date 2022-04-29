@@ -85,7 +85,8 @@ public class AI : MonoBehaviour
         sante -= dammages;
         if(sante <= 0)
         {
-            Instantiate(loot, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+            GameObject loot_obj = Instantiate(loot);
+            loot_obj.transform.position = gameObject.transform.position;
             Destroy(gameObject);
         }
     }
