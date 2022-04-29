@@ -4,7 +4,6 @@ using UnityEngine.AI;
 
 public class PlayerControl : MonoBehaviour
 {
-    //private float speed;
     [SerializeField] private Camera cam;
     private Vector3 targetPosition;
 

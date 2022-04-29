@@ -15,8 +15,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
-      human bone 'LeftHand' not found\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -70,9 +69,11 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips:
+  - 18a6f6a3128810c4f8bfab49adee8eb6
   - e2824355a72112d48baa2586c8595b38
   - a51676a6474de054993cfcb648be1f8c
   - 7e7b7442b09b38b438bb6d08bf7afb94
+  - 5fb971b09bb39f84cb96b1eb6ec32430
   importAnimation: 1
   humanDescription:
     serializedVersion: 3

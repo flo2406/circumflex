@@ -53,7 +53,10 @@ public class Animations : MonoBehaviour
                 slash_time = Time.time;
             else if (Time.time > slash_time + 1)
             {
-                ennemy.GetComponent<AI>().take_dammages(50);
+                Stats stat = GameObject.FindWithTag("stat").GetComponent<Stats>();
+                float dammage = stat.get_strength() * 20;
+
+                ennemy.GetComponent<AI>().take_dammages(dammage);
                 slash_time = 0;
                 is_slash = false;
                 clear_slash_anim();

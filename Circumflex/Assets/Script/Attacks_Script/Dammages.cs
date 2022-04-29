@@ -5,12 +5,11 @@ using UnityEngine;
 public class Dammages : MonoBehaviour
 {
     private float begin;
-    private float dammage;
+    private string type_of_attack;
 
     void Start()
     {
         begin = Time.time;
-        dammage = 50;
     }
 
     void Update()
@@ -23,9 +22,22 @@ public class Dammages : MonoBehaviour
     {
         if (other.gameObject.tag == "ennemi")
         {
+            float dammage;
+            Stats stat = GameObject.FindWithTag("stat").GetComponent<Stats>();
+
+            if (type_of_attack == "fireball")
+                dammage = stat.get_strength() * 2;
+            else
+                dammage = stat.get_strength() / 7;
+
             AI ai = other.gameObject.GetComponent<AI>();
             if(ai != null)
                 ai.take_dammages(dammage);
         }
+    }
+
+    public void set_type_of_attack(string str)
+    {
+        type_of_attack = str;
     }
 }

@@ -44,4 +44,9 @@ public class Strength : MonoBehaviour
         GameObject stat = GameObject.FindWithTag("stat");
         stat.GetComponent<Stats>().set_vitality(strength_armor + strength_competence);
     }
+
+    public int get_strength_stat()
+    {
+        return strength_armor + strength_competence;
+    }
 }

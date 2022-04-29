@@ -23,9 +23,9 @@ public class Gestion_Barre : MonoBehaviour
         mana_max = 100f;
     }
 
-    public void make_damages(float damages)
+    public void make_damages(float dammages)
     {
-        health -= damages;
+        health -= dammages;
         if(health < 0)
             health = 0;
     }

@@ -25,6 +25,7 @@ public class Fireball : MonoBehaviour
     public void send_attack()
     {
         GameObject clone = Instantiate(attack, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), transform.rotation);
+        clone.GetComponent<Dammages>().set_type_of_attack("fireball");
         Vector3 val = transform.TransformDirection(Vector3.forward * forceForward);
         clone.GetComponent<Rigidbody>().AddForce(val);
     }
