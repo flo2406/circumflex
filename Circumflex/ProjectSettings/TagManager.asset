@@ -12,6 +12,7 @@ TagManager:
   - ennemi
   - barre
   - stat
+  - level
   layers:
   - Default
   - TransparentFX

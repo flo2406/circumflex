@@ -6,20 +6,13 @@ using UnityEngine.UI;
 public class Level : MonoBehaviour
 {
     private int level;
+    private Stats stats;
     private Text text;
 
     void Start()
     {
-        level = 1;
+        stats = GameObject.FindWithTag("stat").GetComponent<Stats>();
         text = GetComponent<Text>();
-        text.text = "Level 1";
+        text.text = "Level " + stats.get_level();
     }
-
-    public void level_up()
-    {
-        level++;
-        text.text = "Level " + level;
-    }
-
-
 }
