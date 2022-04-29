@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Stats : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Stats : MonoBehaviour
     private int defense;
     private int speed;
 
+    private float experience;
+    [SerializeField] private Image experience_image;
+
     void Start()
     {
         vitality = 100;
@@ -17,6 +21,9 @@ public class Stats : MonoBehaviour
         strength = 20;
         defense = 20;
         speed = 20;
+
+        experience = 0;
+        experience_image.fillAmount = 0;
     }
 
     public int get_vitality()
@@ -70,6 +77,14 @@ public class Stats : MonoBehaviour
     public void set_speed(int spe)
     {
         speed = spe;
+    }
+
+
+    public void gain_experience(int xp)
+    {
+        experience += xp;
+        experience_image.fillAmount = experience / 1000;
+        Debug.Log(experience_image.fillAmount);
     }
 
 }

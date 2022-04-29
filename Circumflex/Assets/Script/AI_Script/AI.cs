@@ -85,6 +85,9 @@ public class AI : MonoBehaviour
         sante -= dammages;
         if(sante <= 0)
         {
+            Stats stat = GameObject.FindWithTag("stat").GetComponent<Stats>();
+            stat.gain_experience(50);
+
             GameObject loot_obj = Instantiate(loot);
             loot_obj.transform.position = gameObject.transform.position;
             Destroy(gameObject);
