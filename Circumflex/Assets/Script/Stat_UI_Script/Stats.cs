@@ -90,7 +90,7 @@ public class Stats : MonoBehaviour
     {
         experience += xp;
 
-        if(experience >= xp_need[level])
+        while(level <= 48 && experience >= xp_need[level])
         {
             experience -= xp_need[level];
             level++;
@@ -103,9 +103,9 @@ public class Stats : MonoBehaviour
 
     private int[] set_experience_tab()
     {
-        int[] tab = new int[49];
+        int[] tab = new int[50];
 
-        for(int i = 1; i < 50; i++)
+        for(int i = 1; i < 51; i++)
         {
             float val = 1f + (i * 15f / 50f);
             tab[i - 1] = (int) (val * Mathf.Log10(val) * 10000);
