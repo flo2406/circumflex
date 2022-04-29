@@ -6,23 +6,30 @@ public class Active_Tornado : MonoBehaviour
 {
     [SerializeField] private GameObject tornado;
     private KeyCode keyCode;
+    private bool active;
     void Start()
     {
+        active = false;
         tornado.SetActive(false);
         keyCode = KeyCode.E;
     }
 
     void Update()
     {
-        if (Input.GetKey(keyCode))
+        if (Input.GetKeyDown(keyCode))
         {
-            gameObject.GetComponentInParent<Animations>().set_tornado_anim();
-            tornado.SetActive(true);
-        }
-        else
-        {
-            gameObject.GetComponentInParent<Animations>().clear_tornado_anim();
-            tornado.SetActive(false);
+            if (!active)
+            {
+                gameObject.GetComponentInParent<Animations>().set_tornado_anim();
+                tornado.SetActive(true);
+                active = true;
+            }
+            else
+            {
+                gameObject.GetComponentInParent<Animations>().clear_tornado_anim();
+                tornado.SetActive(false);
+                active = false;
+            }
         }
     }
 }

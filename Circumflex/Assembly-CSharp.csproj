@@ -60,8 +60,10 @@
      <Compile Include="Assets\Script\Active_UI.cs" />
      <Compile Include="Assets\Script\Attacks_Script\Active_Shield.cs" />
      <Compile Include="Assets\Script\Attacks_Script\Active_Tornado.cs" />
+     <Compile Include="Assets\Script\Attacks_Script\Dammages.cs" />
      <Compile Include="Assets\Script\Attacks_Script\Electrical_laser.cs" />
      <Compile Include="Assets\Script\Attacks_Script\Fireball.cs" />
+     <Compile Include="Assets\Script\Attacks_Script\Tornado_Dammage.cs" />
      <Compile Include="Assets\Script\Health_Mana_Script\Gestion_Barre.cs" />
      <Compile Include="Assets\Script\Inventary_UI_Script\Applied_Armor.cs" />
      <Compile Include="Assets\Script\Inventary_UI_Script\Create_inventary.cs" />
@@ -72,7 +74,6 @@
      <Compile Include="Assets\Script\Inventary_UI_Script\Stat_Armor.cs" />
      <Compile Include="Assets\Script\Move_Script\Animations.cs" />
      <Compile Include="Assets\Script\Move_Script\CamMoving.cs" />
-     <Compile Include="Assets\Script\Move_Script\Dammages.cs" />
      <Compile Include="Assets\Script\Move_Script\Lootage.cs" />
      <Compile Include="Assets\Script\Move_Script\PlayerControl.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Defense.cs" />

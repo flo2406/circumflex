@@ -80,13 +80,13 @@ public class AI : MonoBehaviour
     }
 
     
-    public void make_dammages(float dammages)
+    public void take_dammages(float dammages)
     {
         sante -= dammages;
         if(sante <= 0)
         {
+            Instantiate(loot, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
             Destroy(gameObject);
-            Instantiate(loot,new Vector3 (transform.position.x, transform.position.y + 2.5f, transform.position.z), Quaternion.identity);
         }
     }
 
