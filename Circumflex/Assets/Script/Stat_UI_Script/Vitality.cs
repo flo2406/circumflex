@@ -9,6 +9,7 @@ public class Vitality : MonoBehaviour
     private int vitality_competence;
     private int vitality_armor;
     [SerializeField] private Nb_Points nb_Points;
+    private Gestion_Barre gestion_Barre;
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class Vitality : MonoBehaviour
         vitality_competence = 100;
         vitality_armor = 0;
         To_Str();
+
+        gestion_Barre = GameObject.FindGameObjectWithTag("barre").GetComponent<Gestion_Barre>();
     }
 
     void To_Str()
@@ -34,6 +37,8 @@ public class Vitality : MonoBehaviour
 
         GameObject stat = GameObject.FindWithTag("stat");
         stat.GetComponent<Stats>().set_vitality(vitality_armor + vitality_competence);
+
+        gestion_Barre.set_health(vitality_armor + vitality_competence);
     }
 
     public void set_vitality_armor(int vit)
@@ -43,6 +48,8 @@ public class Vitality : MonoBehaviour
 
         GameObject stat = GameObject.FindWithTag("stat");
         stat.GetComponent<Stats>().set_vitality(vitality_armor + vitality_competence);
+
+        gestion_Barre.set_health(vitality_armor + vitality_competence);
     }
 
 }

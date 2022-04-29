@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class Gestion_Barre : MonoBehaviour
 {
     private float health;
+    private float health_max;
+    
     private float mana;
+    private float mana_max;
 
     [SerializeField] private Image health_barre;
     [SerializeField] private Image mana_barre;
@@ -14,7 +17,10 @@ public class Gestion_Barre : MonoBehaviour
     void Start()
     {
         health = 100f;
+        health_max = 100f;
+        
         mana = 100f;
+        mana_max = 100f;
     }
 
     public void make_damages(float damages)
@@ -34,6 +40,12 @@ public class Gestion_Barre : MonoBehaviour
         return health;
     }
 
+    public void set_health(float new_health)
+    {
+        health_max = new_health;
+        health = new_health;
+    }
+
     public float get_mana()
     {
         return mana;
@@ -46,7 +58,7 @@ public class Gestion_Barre : MonoBehaviour
         if(mana > 100)
             mana = 100;
 
-        health_barre.fillAmount = health / 100;
-        mana_barre.fillAmount = mana / 100;
+        health_barre.fillAmount = health / health_max;
+        mana_barre.fillAmount = mana / mana_max;
     }
 }
