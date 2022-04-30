@@ -76,6 +76,7 @@
      <Compile Include="Assets\Script\Move_Script\CamMoving.cs" />
      <Compile Include="Assets\Script\Move_Script\Lootage.cs" />
      <Compile Include="Assets\Script\Move_Script\PlayerControl.cs" />
+     <Compile Include="Assets\Script\Potion\Potion_advance.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Defense.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Level.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Name.cs" />

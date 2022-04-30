@@ -86,7 +86,7 @@ public class AI : MonoBehaviour
         if(sante <= 0)
         {
             Stats stat = GameObject.FindWithTag("stat").GetComponent<Stats>();
-            stat.gain_experience(stat.get_wisdom() / 20 * 600000);
+            stat.gain_experience(stat.get_wisdom() / 20 * 600);
 
             GameObject loot_obj = Instantiate(loot);
             loot_obj.transform.position = gameObject.transform.position;
