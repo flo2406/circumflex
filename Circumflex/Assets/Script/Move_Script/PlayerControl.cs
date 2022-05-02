@@ -95,7 +95,7 @@ public class PlayerControl : MonoBehaviour
 
         else
         {
-            transform.LookAt(targetPosition);
+            agent.updateRotation = false;
         }
 
     }

@@ -22,6 +22,7 @@ public class AI : MonoBehaviour
 
     private float sante;
     [SerializeField] private GameObject loot;
+    private bool is_kill;
 
     private Gestion_Barre gestion_Barre;
 
@@ -29,8 +30,10 @@ public class AI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         sante = 100;
+        is_kill = false;
+
         rangeFollow = 50;
-        rangeAttack = 2f;
+        rangeAttack = 7f;
 
 
         animator = GetComponent<Animator>();
@@ -83,8 +86,10 @@ public class AI : MonoBehaviour
     public void take_dammages(float dammages)
     {
         sante -= dammages;
-        if(sante <= 0)
+        if(sante <= 0 && !is_kill)
         {
+            is_kill = true;
+
             Stats stat = GameObject.FindWithTag("stat").GetComponent<Stats>();
             stat.gain_experience(stat.get_wisdom() / 20 * 600);
 
@@ -113,7 +118,10 @@ public class AI : MonoBehaviour
                 start_punch_anim = -1;
                 end_punch_anim = Time.time;
                 player.gameObject.GetComponent<Animations>().set_hit_anim();
-                gestion_Barre.make_damages(50f);
+
+                GameObject stat = GameObject.FindWithTag("stat");
+                float damage = 100f / stat.GetComponent<Stats>().get_defense();
+                gestion_Barre.make_damages(damage);
             }
             else
             {

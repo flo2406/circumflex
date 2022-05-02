@@ -7,7 +7,12 @@ public class Spawn : MonoBehaviour
 {
     private float time; 
     [SerializeField] private GameObject player;
+
+
     [SerializeField] private GameObject mutant_ennemy;
+    [SerializeField] private GameObject archery_ennemy;
+    private List<GameObject> different_ennemis;
+
     private int number_of_ennemis;
     private int max_ennemis;
 
@@ -22,6 +27,10 @@ public class Spawn : MonoBehaviour
         
         number_of_ennemis = 0;
         max_ennemis = 10;
+
+        different_ennemis = new List<GameObject>();
+        different_ennemis.Add(mutant_ennemy);
+        different_ennemis.Add(archery_ennemy);
     }
 
     void Update()
@@ -58,8 +67,8 @@ public class Spawn : MonoBehaviour
         {
             Vector3 middle = player.transform.position;
             Random random = new Random();
-            int x_diff = random.Next(0, 100);
-            int z_diff = random.Next(50,100) - x_diff;
+            int x_diff = random.Next(0, 40);
+            int z_diff = random.Next(20,40) - x_diff;
 
             int x_sign = random.Next(0, 2) % 2;
             int z_sign = random.Next(0, 2) % 2;
@@ -70,7 +79,8 @@ public class Spawn : MonoBehaviour
             if (z_sign != 0)
                 z_diff = -z_diff;
 
-            Instantiate(mutant_ennemy, new Vector3(x_diff + middle.x, 10, z_diff + middle.z), Quaternion.identity);
+            GameObject ennemy = different_ennemis[random.Next(0, zone)];
+            Instantiate(ennemy, new Vector3(x_diff + middle.x, 10, z_diff + middle.z), Quaternion.identity);
 
             time = Time.time;
             number_of_ennemis++;
