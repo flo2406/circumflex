@@ -13,6 +13,7 @@ TagManager:
   - barre
   - stat
   - level
+  - spawn
   layers:
   - Default
   - TransparentFX

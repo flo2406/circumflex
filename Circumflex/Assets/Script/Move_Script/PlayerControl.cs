@@ -82,15 +82,21 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        if ((targetPosition - transform.position).magnitude > 0.1f)
+        if ((targetPosition - transform.position).magnitude > 0.5f)
         {
+            agent.updateRotation = true;
+
             GameObject stat = GameObject.FindWithTag("stat");
-            agent.speed = stat.GetComponent<Stats>().get_vitality() / 10;
+            agent.speed = stat.GetComponent<Stats>().get_speed() / 2;
 
             targetPosition.y = transform.position.y;
             agent.SetDestination(targetPosition);
         }
 
+        else
+        {
+            transform.LookAt(targetPosition);
+        }
 
     }
 

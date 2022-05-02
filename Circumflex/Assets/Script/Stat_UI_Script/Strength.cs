@@ -33,7 +33,7 @@ public class Strength : MonoBehaviour
         To_Str();
 
         GameObject stat = GameObject.FindWithTag("stat");
-        stat.GetComponent<Stats>().set_vitality(strength_armor + strength_competence);
+        stat.GetComponent<Stats>().set_strength(strength_armor + strength_competence);
     }
 
     public void set_strength_armor(int str)
@@ -42,7 +42,7 @@ public class Strength : MonoBehaviour
         To_Str();
 
         GameObject stat = GameObject.FindWithTag("stat");
-        stat.GetComponent<Stats>().set_vitality(strength_armor + strength_competence);
+        stat.GetComponent<Stats>().set_strength(strength_armor + strength_competence);
     }
 
     public int get_strength_stat()

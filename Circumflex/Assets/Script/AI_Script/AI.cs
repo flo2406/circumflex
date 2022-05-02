@@ -29,7 +29,7 @@ public class AI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         sante = 100;
-        rangeFollow = 120;
+        rangeFollow = 50;
         rangeAttack = 2f;
 
 
@@ -38,7 +38,7 @@ public class AI : MonoBehaviour
         IsPunchingHash = Animator.StringToHash("punch");
         start_punch_anim = -1;
         end_punch_anim = -1;
-
+        
         gestion_Barre = GameObject.FindGameObjectWithTag("barre").GetComponent<Gestion_Barre>();
     }
 
@@ -91,6 +91,9 @@ public class AI : MonoBehaviour
             GameObject loot_obj = Instantiate(loot);
             loot_obj.transform.position = gameObject.transform.position;
             Destroy(gameObject);
+
+            Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
+            spawn.decrease_monster_number();
         }
     }
 

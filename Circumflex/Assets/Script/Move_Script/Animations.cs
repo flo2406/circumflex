@@ -88,7 +88,7 @@ public class Animations : MonoBehaviour
 
         else
         {
-            if ((target_position - control.gameObject.transform.position).magnitude > 0.1f)
+            if ((target_position - control.gameObject.transform.position).magnitude > 0.5f)
                 animator.SetBool(IsWalkingHash, true);
             else
                 animator.SetBool(IsWalkingHash, false);
