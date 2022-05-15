@@ -9,7 +9,8 @@ public class Active_Shield : MonoBehaviour
     void Start()
     {
         shield.SetActive(false);
-        keyCode = KeyCode.Z;
+        //keyCode = KeyCode.Z;
+        keyCode = KeyCode.W;
     }
 
     void Update()

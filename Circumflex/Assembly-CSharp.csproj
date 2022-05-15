@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\Prefabs\QuickOutline\Scripts\Outline.cs" />
      <Compile Include="Assets\Script\AI_Script\AI.cs" />
+     <Compile Include="Assets\Script\AI_Script\Archerie_AI.cs" />
      <Compile Include="Assets\Script\Active_UI.cs" />
      <Compile Include="Assets\Script\Attacks_Script\Active_Shield.cs" />
      <Compile Include="Assets\Script\Attacks_Script\Active_Tornado.cs" />

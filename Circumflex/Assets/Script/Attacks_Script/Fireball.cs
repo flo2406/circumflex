@@ -11,7 +11,8 @@ public class Fireball : MonoBehaviour
     void Start()
     {
         forceForward = 1000;
-        keyCode = KeyCode.A;
+        //keyCode = KeyCode.A;
+        keyCode = KeyCode.Q;
     }
 
     void Update()
