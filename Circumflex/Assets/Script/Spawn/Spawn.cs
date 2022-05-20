@@ -26,7 +26,7 @@ public class Spawn : MonoBehaviour
         spawn_time = 0.2f;
         
         number_of_ennemis = 0;
-        max_ennemis = 10;
+        max_ennemis = 5;
 
         different_ennemis = new List<GameObject>();
         different_ennemis.Add(mutant_ennemy);
@@ -44,20 +44,20 @@ public class Spawn : MonoBehaviour
         zone = new_zone;
         if(zone == 1)
         {
-            max_ennemis = 10;
-            spawn_time = 0.2f;
+            max_ennemis = 5;
+            spawn_time = 1f;
         }
 
         if (zone == 2)
         {
-            max_ennemis = 50;
-            spawn_time = 0.1f;
+            max_ennemis = 20;
+            spawn_time = 0.5f;
         }
 
         if (zone == 3)
         {
-            max_ennemis = 150;
-            spawn_time = 0.05f;
+            max_ennemis = 50;
+            spawn_time = 0.3f;
         }
     }
 
@@ -80,7 +80,7 @@ public class Spawn : MonoBehaviour
                 z_diff = -z_diff;
 
             GameObject ennemy = different_ennemis[random.Next(0, zone)];
-            Instantiate(ennemy, new Vector3(x_diff + middle.x, 10, z_diff + middle.z), Quaternion.identity);
+            Instantiate(ennemy, new Vector3(x_diff + middle.x, 2, z_diff + middle.z), Quaternion.identity);
 
             time = Time.time;
             number_of_ennemis++;

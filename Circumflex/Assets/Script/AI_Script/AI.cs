@@ -30,6 +30,8 @@ public class AI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         sante = 100;
+        agent.speed = 5;
+
         is_kill = false;
 
         rangeFollow = 50;
@@ -75,10 +77,17 @@ public class AI : MonoBehaviour
         }
         else
         {
+            /*
             agent.SetDestination(transform.position);
 
             animator.SetBool(IsWalkingHash, false);
             animator.SetBool(IsPunchingHash, false);
+            */
+
+            Destroy(gameObject);
+
+            Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
+            spawn.decrease_monster_number();
         }
     }
 

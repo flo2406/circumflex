@@ -37,9 +37,9 @@ public class Archerie_AI : MonoBehaviour
         is_kill = false;
 
         rangeFollow = 50;
-        rangeAttack = 20f;
+        rangeAttack = 15f;
 
-        forceForward = 1000;
+        forceForward = 10000;
         time_between = 1f;
         last_attack = 0;
 
