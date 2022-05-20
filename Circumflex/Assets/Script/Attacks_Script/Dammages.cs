@@ -31,8 +31,12 @@ public class Dammages : MonoBehaviour
                 dammage = stat.get_strength() / 7;
 
             AI ai = other.gameObject.GetComponent<AI>();
-            if(ai != null)
+            if (ai != null)
                 ai.take_dammages(dammage);
+           
+            Archerie_AI ai_arch = other.gameObject.GetComponent<Archerie_AI>();
+            if (ai_arch != null)
+                ai_arch.take_dammages(dammage);
         }
     }
 

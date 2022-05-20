@@ -56,7 +56,14 @@ public class Animations : MonoBehaviour
                 Stats stat = GameObject.FindWithTag("stat").GetComponent<Stats>();
                 float dammage = stat.get_strength() * 20;
 
-                ennemy.GetComponent<AI>().take_dammages(dammage);
+                AI ai;
+                bool ai_mutant = ennemy.TryGetComponent<AI>(out ai);
+
+                if(ai_mutant)
+                    ai.take_dammages(dammage);
+                else
+                    ennemy.GetComponent<Archerie_AI>().take_dammages(dammage);
+
                 slash_time = 0;
                 is_slash = false;
                 clear_slash_anim();
