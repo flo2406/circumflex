@@ -16910,7 +16910,7 @@ GameObject:
   - component: {fileID: 3122450350844795657}
   - component: {fileID: 6110990814505596236}
   m_Layer: 5
-  m_Name: Stat_Defense
+  m_Name: Stat_Mana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17729,7 +17729,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Defense : '
+  m_Text: 'Mana : '
 --- !u!224 &3152289400819223732
 RectTransform:
   m_ObjectHideFlags: 0
