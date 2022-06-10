@@ -30,9 +30,13 @@ public class Gestion_Barre : MonoBehaviour
             health = 0;
     }
 
-    public void use_mana(float use)
+    public bool use_mana(float use)
     {
+        if (use > mana)
+            return false;
+        
         mana -= use;
+        return true;
     }
 
     public float get_health()
@@ -49,16 +53,16 @@ public class Gestion_Barre : MonoBehaviour
 
     public void health_potion()
     {
-        health += 20;
-        if(health > 100)
-            health = 100;
+        health += 0.2f * health_max;
+        if(health > health_max)
+            health = health_max;
     }
 
     public void mana_potion()
     {
-        mana += 20;
-        if (mana > 100)
-            mana = 100;
+        mana += 0.2f * mana_max;
+        if (mana > mana_max)
+            mana = mana_max;
     }
 
 
@@ -69,10 +73,10 @@ public class Gestion_Barre : MonoBehaviour
 
     void Update()
     {
-        mana += 0.01f;
+        mana += 0.05f;
         
-        if(mana > 100)
-            mana = 100;
+        if(mana > mana_max)
+            mana = mana_max;
 
         health_barre.fillAmount = health / health_max;
         mana_barre.fillAmount = mana / mana_max;
