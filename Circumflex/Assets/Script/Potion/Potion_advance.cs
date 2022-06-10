@@ -9,6 +9,8 @@ public class Potion_advance : MonoBehaviour
     private int i;
     private int nb_kill;
 
+    private int type_of_potion;
+
     //Potion 0 : Health
     //Potion 1 : Mana
     //Potion 2 : Strength
@@ -27,18 +29,22 @@ public class Potion_advance : MonoBehaviour
     {
         if (gameObject.name == "Evolution_potion_health")
         {
+            type_of_potion = 0;
             keyCode_use = KeyCode.Alpha1;
         }
         else if (gameObject.name == "Evolution_potion_mana")
         {
+            type_of_potion = 1;
             keyCode_use = KeyCode.Alpha2;
         }
         else if (gameObject.name == "Evolution_potion_strength")
         {
+            type_of_potion = 2;
             keyCode_use = KeyCode.Alpha3;
         }
         else
         {
+            type_of_potion = 3;
             keyCode_use = KeyCode.Alpha4;
         }
     }
@@ -65,11 +71,24 @@ public class Potion_advance : MonoBehaviour
     {
         if(i > 0 && Input.GetKeyDown(keyCode_use))
         {
+            use_potion();
             tab[i].SetActive(false); 
             i--;
             tab[i].SetActive(true);
         }
     }
+
+
+    private void use_potion()
+    {
+        Gestion_Barre gestion_Barre = GameObject.FindGameObjectWithTag("barre").GetComponent<Gestion_Barre>();
+        if (type_of_potion == 0)
+            gestion_Barre.health_potion();
+
+        else if (type_of_potion == 1)
+            gestion_Barre.mana_potion();
+    }
+
 
     public void one_kill_more()
     {

@@ -90,7 +90,6 @@ public class Spawn : MonoBehaviour
 
     public void decrease_monster_number()
     {
-        Debug.Log("-1");
         number_of_ennemis--;
     }
 }

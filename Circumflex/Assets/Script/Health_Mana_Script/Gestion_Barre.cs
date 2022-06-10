@@ -19,7 +19,7 @@ public class Gestion_Barre : MonoBehaviour
         health = 100f;
         health_max = 100f;
         
-        mana = 100f;
+        mana = 10f;
         mana_max = 100f;
     }
 
@@ -42,9 +42,25 @@ public class Gestion_Barre : MonoBehaviour
 
     public void set_health(float new_health)
     {
+        int percent = (int) (health * new_health / health_max);
         health_max = new_health;
-        health = new_health;
+        health = percent;
     }
+
+    public void health_potion()
+    {
+        health += 20;
+        if(health > 100)
+            health = 100;
+    }
+
+    public void mana_potion()
+    {
+        mana += 20;
+        if (mana > 100)
+            mana = 100;
+    }
+
 
     public float get_mana()
     {
