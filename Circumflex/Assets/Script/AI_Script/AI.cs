@@ -88,6 +88,11 @@ public class AI : MonoBehaviour
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
             spawn.decrease_monster_number();
+
+            foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
+            {
+                potion.GetComponent<Potion_advance>().one_kill_more();
+            }
         }
     }
 
@@ -108,6 +113,12 @@ public class AI : MonoBehaviour
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
             spawn.decrease_monster_number();
+
+            foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
+            {
+                potion.GetComponent<Potion_advance>().one_kill_more();
+            }
+
         }
     }
 

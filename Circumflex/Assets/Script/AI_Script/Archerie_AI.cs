@@ -97,6 +97,11 @@ public class Archerie_AI : MonoBehaviour
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
             spawn.decrease_monster_number();
+
+            foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
+            {
+                potion.GetComponent<Potion_advance>().one_kill_more();
+            }
         }
     }
 
