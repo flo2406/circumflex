@@ -36,4 +36,10 @@ public class Active_Shield : MonoBehaviour
             }
         }
     }
+
+    public bool have_shield()
+    {
+        return actif;
+    }
+
 }

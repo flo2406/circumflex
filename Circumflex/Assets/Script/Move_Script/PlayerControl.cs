@@ -32,6 +32,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Physics.Raycast(cam.transform.position, see_ray.direction, out see_ennemy_hit, 1000, ennemy_layer))
         {
+            Debug.Log("here");
             if (see_ennemy != null && see_ennemy != see_ennemy_hit.transform.gameObject)
                 see_ennemy.GetComponent<Outline>().enabled = false;
 
@@ -86,8 +87,8 @@ public class PlayerControl : MonoBehaviour
         {
             agent.updateRotation = true;
 
-            GameObject stat = GameObject.FindWithTag("stat");
-            agent.speed = stat.GetComponent<Stats>().get_speed() / 2;
+            //GameObject stat = GameObject.FindWithTag("stat");
+            agent.speed = 10f;//stat.GetComponent<Stats>().get_speed() / 2;
 
             targetPosition.y = transform.position.y;
             agent.SetDestination(targetPosition);

@@ -57,12 +57,16 @@ public class Animations : MonoBehaviour
                 float dammage = stat.get_strength() * 20;
 
                 AI ai;
+                Archerie_AI ai2;
                 bool ai_mutant = ennemy.TryGetComponent<AI>(out ai);
+                bool ai_archer = ennemy.TryGetComponent<Archerie_AI>(out ai2);
 
-                if(ai_mutant)
+                if (ai_mutant)
                     ai.take_dammages(dammage);
+                else if(ai_archer)
+                    ai2.take_dammages(dammage);
                 else
-                    ennemy.GetComponent<Archerie_AI>().take_dammages(dammage);
+                    ennemy.GetComponent<Zombie_AI>().take_dammages(dammage);  
 
                 slash_time = 0;
                 is_slash = false;

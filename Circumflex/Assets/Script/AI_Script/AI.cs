@@ -20,7 +20,7 @@ public class AI : MonoBehaviour
     private float start_punch_anim;
     private float end_punch_anim;
 
-    private float sante;
+    [SerializeField] private float sante;
     [SerializeField] private GameObject loot;
     private bool is_kill;
 
@@ -29,7 +29,7 @@ public class AI : MonoBehaviour
     public void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        sante = 100;
+        //sante = 100;
         agent.speed = 5;
 
         is_kill = false;
@@ -61,7 +61,10 @@ public class AI : MonoBehaviour
             animator.SetBool(IsWalkingHash, false);
             animator.SetBool(IsPunchingHash, true);
 
-            throw_anim(player, true);
+            bool shield = player.GetComponentInChildren<Active_Shield>().have_shield();
+
+            if(!shield)
+                throw_anim(player, true);
         }
 
         else if (players_collider.Length != 0)
@@ -73,17 +76,20 @@ public class AI : MonoBehaviour
             animator.SetBool(IsWalkingHash, true);
             animator.SetBool(IsPunchingHash, false);
 
-            throw_anim(player, false);
+            bool shield = player.GetComponentInChildren<Active_Shield>().have_shield();
+
+            if (!shield)
+                throw_anim(player, false);
         }
         else
         {
-            /*
+            
             agent.SetDestination(transform.position);
 
             animator.SetBool(IsWalkingHash, false);
             animator.SetBool(IsPunchingHash, false);
-            */
-
+            
+            /*
             Destroy(gameObject);
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
@@ -92,7 +98,7 @@ public class AI : MonoBehaviour
             foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
             {
                 potion.GetComponent<Potion_advance>().one_kill_more();
-            }
+            }*/
         }
     }
 
@@ -111,8 +117,8 @@ public class AI : MonoBehaviour
             loot_obj.transform.position = gameObject.transform.position;
             Destroy(gameObject);
 
-            Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
-            spawn.decrease_monster_number();
+            //Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
+            //spawn.decrease_monster_number();
 
             foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
             {
@@ -140,7 +146,7 @@ public class AI : MonoBehaviour
                 player.gameObject.GetComponent<Animations>().set_hit_anim();
 
                 GameObject stat = GameObject.FindWithTag("stat");
-                float damage = 100f / stat.GetComponent<Stats>().get_defense();
+                float damage = 300f / stat.GetComponent<Stats>().get_defense();
                 gestion_Barre.make_damages(damage);
             }
             else

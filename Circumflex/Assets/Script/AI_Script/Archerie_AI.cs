@@ -18,11 +18,8 @@ public class Archerie_AI : MonoBehaviour
 
     [SerializeField] private LayerMask playerMask;
 
-    /*private Animator animator;
-    private int IsWalkingHash;
-    private int IsPunchingHash;
-    private float start_punch_anim;
-    private float end_punch_anim;*/
+    private Animator animator;
+    private int IsThrowingHash;
 
     private float sante;
     [SerializeField] private GameObject loot;
@@ -40,14 +37,11 @@ public class Archerie_AI : MonoBehaviour
         rangeAttack = 15f;
 
         forceForward = 10000;
-        time_between = 1f;
+        time_between = 1.1f;
         last_attack = 0;
 
-        /*animator = GetComponent<Animator>();
-        IsWalkingHash = Animator.StringToHash("walk");
-        IsPunchingHash = Animator.StringToHash("punch");
-        start_punch_anim = -1;
-        end_punch_anim = -1;*/
+        animator = GetComponent<Animator>();
+        IsThrowingHash = Animator.StringToHash("throw");
 
         gestion_Barre = GameObject.FindGameObjectWithTag("barre").GetComponent<Gestion_Barre>();
     }
@@ -59,6 +53,8 @@ public class Archerie_AI : MonoBehaviour
 
         if (players_near.Length != 0)
         {
+            animator.SetBool(IsThrowingHash, true);
+
             Transform player = players_collider[0].transform;
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
             agent.SetDestination(transform.position);
@@ -66,6 +62,8 @@ public class Archerie_AI : MonoBehaviour
             if (Time.time > last_attack + time_between)
             {
                 GameObject clone = Instantiate(attack, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), transform.rotation);
+                clone.transform.LookAt(player);
+                clone.transform.rotation *= Quaternion.Euler(0, 90, 90);
                 Vector3 val = transform.TransformDirection(Vector3.forward * forceForward);
                 clone.GetComponent<Rigidbody>().AddForce(val);
                 last_attack = Time.time;
@@ -74,6 +72,9 @@ public class Archerie_AI : MonoBehaviour
 
         else if (players_collider.Length != 0)
         {
+            animator.SetBool(IsThrowingHash, false);
+            last_attack = Time.time - 0.1f;
+
             Transform player = players_collider[0].transform;
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
             agent.SetDestination(new Vector3(player.position.x, transform.position.y, player.position.z));
@@ -95,8 +96,8 @@ public class Archerie_AI : MonoBehaviour
             loot_obj.transform.position = gameObject.transform.position;
             Destroy(gameObject);
 
-            Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
-            spawn.decrease_monster_number();
+            //Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
+            //spawn.decrease_monster_number();
 
             foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
             {

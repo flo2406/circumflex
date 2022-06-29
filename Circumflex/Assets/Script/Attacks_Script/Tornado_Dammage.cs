@@ -18,6 +18,10 @@ public class Tornado_Dammage : MonoBehaviour
             Archerie_AI ai_arch = other.gameObject.GetComponent<Archerie_AI>();
             if (ai_arch != null)
                 ai_arch.take_dammages(dammage);
+
+            Zombie_AI ai_zombie = other.gameObject.GetComponent<Zombie_AI>();
+            if (ai_zombie != null)
+                ai_zombie.take_dammages(dammage);
         }
     }
 }
