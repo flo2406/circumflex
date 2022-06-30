@@ -50,14 +50,14 @@ public class Spawn : MonoBehaviour
 
         if (zone == 2)
         {
-            max_ennemis = 20;
-            spawn_time = 0.5f;
+            max_ennemis = 15;
+            spawn_time = 0.9f;
         }
 
         if (zone == 3)
         {
-            max_ennemis = 50;
-            spawn_time = 0.3f;
+            max_ennemis = 30;
+            spawn_time = 0.8f;
         }
     }
 

@@ -56,7 +56,6 @@ public class Loot : MonoBehaviour
         {
             if (item.GetComponent<Stat_Armor>().type == Type.NONE)
             {
-                Debug.Log("Adding");
                 item.GetComponent<Image>().color = Color.yellow;
                 item.GetComponent<Stat_Armor>().set_stat(vitality, wisdom, strength, defense, speed, rarety, type);
                 break;

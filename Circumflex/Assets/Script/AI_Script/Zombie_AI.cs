@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
+using Random = System.Random;
 
 public class Zombie_AI : MonoBehaviour
 {
@@ -13,27 +12,32 @@ public class Zombie_AI : MonoBehaviour
 
 
     private Animator animator;
-    private int IsWalkingHash;
     private int IsPunchingHash;
     private float start_punch_anim;
     private float end_punch_anim;
 
-    [SerializeField] private float sante;
     [SerializeField] private GameObject loot;
     private bool is_kill;
 
     private Gestion_Barre gestion_Barre;
 
+
+    // Stat
+    private float _sante;
+    private float _speed;
+    private int _dammages;
+    private int _xp;
+
     public void Awake()
     {
+        set_level();
         agent = GetComponent<NavMeshAgent>();
-        //sante = 100;
-        agent.speed = 1;
 
         is_kill = false;
 
         rangeFollow = 50;
         rangeAttack = 2f;
+        agent.speed = _speed;
 
 
         animator = GetComponent<Animator>();
@@ -42,6 +46,41 @@ public class Zombie_AI : MonoBehaviour
         end_punch_anim = -1;
 
         gestion_Barre = GameObject.FindGameObjectWithTag("barre").GetComponent<Gestion_Barre>();
+    }
+
+
+    private void set_level()
+    {
+        Area_info info = GameObject.FindGameObjectWithTag("area_info").GetComponent<Area_info>();
+        int val = info.get_area();
+
+        Random r = new Random();
+
+        if(val == 1)
+        {
+            _sante = r.Next(20, 30);
+            _speed = (float)r.NextDouble();
+            _dammages = r.Next(150, 200);
+            _xp = r.Next(300, 500);
+        }
+
+
+        else if(val == 2)
+        {
+            _sante = r.Next(50, 70);
+            _speed = (float) r.NextDouble() * 2;
+            _dammages = r.Next(300, 500);
+            _xp = r.Next(500, 700);
+        }
+
+        else if (val == 3)
+        {
+            _sante = r.Next(100, 150);
+            _speed = (float)r.NextDouble() * 3;
+            _dammages = r.Next(400, 700);
+            _xp = r.Next(900, 1300);
+        }
+
     }
 
     public void Update()
@@ -82,7 +121,7 @@ public class Zombie_AI : MonoBehaviour
             agent.SetDestination(transform.position);
             animator.SetBool(IsPunchingHash, false);
 
-            /*
+            
             Destroy(gameObject);
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
@@ -91,27 +130,27 @@ public class Zombie_AI : MonoBehaviour
             foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
             {
                 potion.GetComponent<Potion_advance>().one_kill_more();
-            }*/
+            }
         }
     }
 
 
     public void take_dammages(float dammages)
     {
-        sante -= dammages;
-        if (sante <= 0 && !is_kill)
+        _sante -= dammages;
+        if (_sante <= 0 && !is_kill)
         {
             is_kill = true;
 
             Stats stat = GameObject.FindWithTag("stat").GetComponent<Stats>();
-            stat.gain_experience(stat.get_wisdom() / 20 * 600);
+            stat.gain_experience(stat.get_wisdom() / 20 * _xp);
 
             GameObject loot_obj = Instantiate(loot);
             loot_obj.transform.position = gameObject.transform.position;
             Destroy(gameObject);
 
-            //Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
-            //spawn.decrease_monster_number();
+            Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
+            spawn.decrease_monster_number();
 
             foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
             {
@@ -139,7 +178,7 @@ public class Zombie_AI : MonoBehaviour
                 player.gameObject.GetComponent<Animations>().set_hit_anim();
 
                 GameObject stat = GameObject.FindWithTag("stat");
-                float damage = 100f / stat.GetComponent<Stats>().get_defense();
+                float damage = _dammages / stat.GetComponent<Stats>().get_defense();
                 gestion_Barre.make_damages(damage);
             }
             else

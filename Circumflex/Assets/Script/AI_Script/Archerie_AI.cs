@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-using Randoms = System.Random;
-using Random = UnityEngine.Random;
+using Random = System.Random;
 
 public class Archerie_AI : MonoBehaviour
 {
@@ -21,20 +18,25 @@ public class Archerie_AI : MonoBehaviour
     private Animator animator;
     private int IsThrowingHash;
 
-    private float sante;
     [SerializeField] private GameObject loot;
     private bool is_kill;
 
-    private Gestion_Barre gestion_Barre;
+    // Stat
+    private float _sante;
+    private float _speed;
+    private int _dammages;
+    private int _xp;
+
 
     public void Awake()
     {
+        set_level();
         agent = GetComponent<NavMeshAgent>();
-        sante = 100;
         is_kill = false;
 
         rangeFollow = 50;
         rangeAttack = 15f;
+        agent.speed = _speed;
 
         forceForward = 10000;
         time_between = 1.1f;
@@ -42,9 +44,34 @@ public class Archerie_AI : MonoBehaviour
 
         animator = GetComponent<Animator>();
         IsThrowingHash = Animator.StringToHash("throw");
-
-        gestion_Barre = GameObject.FindGameObjectWithTag("barre").GetComponent<Gestion_Barre>();
     }
+
+    private void set_level()
+    {
+        Area_info info = GameObject.FindGameObjectWithTag("area_info").GetComponent<Area_info>();
+        int val = info.get_area();
+
+        Random r = new Random();
+
+        if (val == 2)
+        {
+            _sante = r.Next(20, 30);
+            _speed = r.Next(5,7);
+            _dammages = r.Next(120, 150);
+            _xp = r.Next(800, 1000);
+        }
+
+        else if (val == 3)
+        {
+            _sante = r.Next(70, 100);
+            _speed = r.Next(7,10);
+            _dammages = r.Next(200, 300);
+            _xp = r.Next(900, 1300);
+        }
+
+    }
+
+
 
     public void Update()
     {
@@ -62,6 +89,7 @@ public class Archerie_AI : MonoBehaviour
             if (Time.time > last_attack + time_between)
             {
                 GameObject clone = Instantiate(attack, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), transform.rotation);
+                clone.GetComponent<Arrow_dammage>().set_dammages(_dammages);
                 clone.transform.LookAt(player);
                 clone.transform.rotation *= Quaternion.Euler(0, 90, 90);
                 Vector3 val = transform.TransformDirection(Vector3.forward * forceForward);
@@ -84,20 +112,20 @@ public class Archerie_AI : MonoBehaviour
 
     public void take_dammages(float dammages)
     {
-        sante -= dammages;
-        if (sante <= 0 && !is_kill)
+        _sante -= dammages;
+        if (_sante <= 0 && !is_kill)
         {
             is_kill = true;
 
             Stats stat = GameObject.FindWithTag("stat").GetComponent<Stats>();
-            stat.gain_experience(stat.get_wisdom() / 20 * 600);
+            stat.gain_experience(stat.get_wisdom() / 20 * _xp);
 
             GameObject loot_obj = Instantiate(loot);
             loot_obj.transform.position = gameObject.transform.position;
             Destroy(gameObject);
 
-            //Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
-            //spawn.decrease_monster_number();
+            Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
+            spawn.decrease_monster_number();
 
             foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
             {

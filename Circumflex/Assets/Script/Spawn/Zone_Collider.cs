@@ -26,11 +26,7 @@ public class Zone_Collider : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Text txt = GameObject.FindGameObjectWithTag("info_zone").GetComponent<Text>();
-            txt.text = "Zone : " + zone;
-
-            Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
-            spawn.change_zone(zone);
+            gameObject.GetComponentInParent<Area_info>().set_area(zone);
         }
     }
 }

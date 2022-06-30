@@ -9,6 +9,7 @@ public class Arrow_dammage : MonoBehaviour
     private float timer;
     private float max_time;
     private int clear_anim;
+    private int dammages;
 
     private void Start()
     {
@@ -33,6 +34,11 @@ public class Arrow_dammage : MonoBehaviour
             Destroy(gameObject);
     }
 
+    public void set_dammages(int _dammages)
+    {
+        dammages = _dammages;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
@@ -47,7 +53,7 @@ public class Arrow_dammage : MonoBehaviour
                 clear_anim = 1;
 
                 GameObject stat = GameObject.FindWithTag("stat");
-                float dammage = 70f / stat.GetComponent<Stats>().get_defense();
+                float dammage = dammages / stat.GetComponent<Stats>().get_defense();
                 gestion_Barre.make_damages(dammage);
             }
         }

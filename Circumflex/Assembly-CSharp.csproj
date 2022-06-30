@@ -87,6 +87,7 @@
      <Compile Include="Assets\Script\Script_for_cube\Fireball_Cube.cs" />
      <Compile Include="Assets\Script\Script_for_cube\Follow_rotation.cs" />
      <Compile Include="Assets\Script\Script_for_cube\Zone_collider.cs" />
+     <Compile Include="Assets\Script\Spawn\Area_info.cs" />
      <Compile Include="Assets\Script\Spawn\Spawn.cs" />
      <Compile Include="Assets\Script\Spawn\Zone_Collider.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Defense.cs" />
