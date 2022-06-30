@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Zone_Collider : MonoBehaviour
 {
@@ -25,7 +26,9 @@ public class Zone_Collider : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("new zone : " + zone);
+            Text txt = GameObject.FindGameObjectWithTag("info_zone").GetComponent<Text>();
+            txt.text = "Zone : " + zone;
+
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
             spawn.change_zone(zone);
         }

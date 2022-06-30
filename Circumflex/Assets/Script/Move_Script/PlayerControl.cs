@@ -32,7 +32,6 @@ public class PlayerControl : MonoBehaviour
 
         if (Physics.Raycast(cam.transform.position, see_ray.direction, out see_ennemy_hit, 1000, ennemy_layer))
         {
-            Debug.Log("here");
             if (see_ennemy != null && see_ennemy != see_ennemy_hit.transform.gameObject)
                 see_ennemy.GetComponent<Outline>().enabled = false;
 

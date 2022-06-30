@@ -15,6 +15,7 @@ TagManager:
   - level
   - spawn
   - potion
+  - info_zone
   layers:
   - Default
   - TransparentFX
