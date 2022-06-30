@@ -59,6 +59,7 @@
      <Compile Include="Assets\Script\AI_Script\AI.cs" />
      <Compile Include="Assets\Script\AI_Script\Archerie_AI.cs" />
      <Compile Include="Assets\Script\AI_Script\Arrow_dammage.cs" />
+     <Compile Include="Assets\Script\AI_Script\Boss_AI.cs" />
      <Compile Include="Assets\Script\AI_Script\Follow_AI.cs" />
      <Compile Include="Assets\Script\AI_Script\Zombie_AI.cs" />
      <Compile Include="Assets\Script\Active_UI.cs" />
