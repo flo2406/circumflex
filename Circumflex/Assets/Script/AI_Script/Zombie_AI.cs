@@ -117,7 +117,6 @@ public class Zombie_AI : MonoBehaviour
         }
         else
         {
-
             agent.SetDestination(transform.position);
             animator.SetBool(IsPunchingHash, false);
 

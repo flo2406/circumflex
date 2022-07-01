@@ -35,7 +35,8 @@ public class Spawn : MonoBehaviour
 
     void Update()
     {
-        Instance();
+        if(zone == 1 || zone == 2)
+            Instance();
     }
 
 
@@ -78,12 +79,16 @@ public class Spawn : MonoBehaviour
 
             time = Time.time;
             number_of_ennemis++;
-            
         }
     }
 
     public void decrease_monster_number()
     {
         number_of_ennemis--;
+    }
+
+    public void increase_monster_number()
+    {
+        number_of_ennemis++;
     }
 }

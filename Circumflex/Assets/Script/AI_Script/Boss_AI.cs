@@ -92,6 +92,7 @@ public class Boss_AI : MonoBehaviour
 
         if (time_invoc < Time.time)
             instanciate_attack();
+
     }
 
 
@@ -108,10 +109,16 @@ public class Boss_AI : MonoBehaviour
         animator.SetBool(IsInvocationHash, true);
         reset_invoc = 1;
         time_invoc += time_between;
-        Instantiate(invoc, new Vector3(5, 0, 0), Quaternion.identity, gameObject.transform);
-        Instantiate(invoc, new Vector3(-5, 0, 0), Quaternion.identity, gameObject.transform);
-        Instantiate(invoc, new Vector3(0, 0, 5), Quaternion.identity, gameObject.transform);
-        Instantiate(invoc, new Vector3(0, 0, -5), Quaternion.identity, gameObject.transform);
+        Instantiate(invoc, new Vector3(24.4f, 1.3f, 388.7f), Quaternion.identity);
+        Instantiate(invoc, new Vector3(4.4f, 1.3f, 388.7f), Quaternion.identity);
+        Instantiate(invoc, new Vector3(14.4f, 1.3f, 398.7f), Quaternion.identity);
+        Instantiate(invoc, new Vector3(14.4f, 1.3f, 378.7f), Quaternion.identity);
+
+        Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
+        spawn.increase_monster_number();
+        spawn.increase_monster_number();
+        spawn.increase_monster_number();
+        spawn.increase_monster_number();
     }
 
     public void take_dammages(float dammages)
