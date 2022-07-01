@@ -41,6 +41,10 @@ public class Dammages : MonoBehaviour
             Zombie_AI ai_zombie = other.gameObject.GetComponent<Zombie_AI>();
             if (ai_zombie != null)
                 ai_zombie.take_dammages(dammage);
+
+            Boss_AI boss = other.gameObject.GetComponent<Boss_AI>();
+            if (boss != null)
+                boss.take_dammages(dammage);
         }
     }
 

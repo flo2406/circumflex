@@ -58,15 +58,19 @@ public class Animations : MonoBehaviour
 
                 AI ai;
                 Archerie_AI ai2;
+                Zombie_AI ai3;
                 bool ai_mutant = ennemy.TryGetComponent<AI>(out ai);
                 bool ai_archer = ennemy.TryGetComponent<Archerie_AI>(out ai2);
+                bool ai_zombie = ennemy.TryGetComponent<Zombie_AI>(out ai3);
 
                 if (ai_mutant)
                     ai.take_dammages(dammage);
-                else if(ai_archer)
+                else if (ai_archer)
                     ai2.take_dammages(dammage);
+                else if (ai_zombie)
+                    ai3.take_dammages(dammage);
                 else
-                    ennemy.GetComponent<Zombie_AI>().take_dammages(dammage);  
+                    ennemy.GetComponent<Boss_AI>().take_dammages(dammage);  
 
                 slash_time = 0;
                 is_slash = false;

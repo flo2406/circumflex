@@ -13,10 +13,11 @@ public class Boss_AI : MonoBehaviour
     private float time_between;
     private float time_before_anim;
     private float timer_anim;
-    private GameObject clone_anim;
 
     private int reset_anim;
     private int reset_invoc;
+
+    private bool reset_anim_hit;
 
     private Animator animator;
     private int IsInvocationHash;
@@ -39,7 +40,7 @@ public class Boss_AI : MonoBehaviour
         time_between = 15;
         time_before_anim = 1.5f;
         timer_anim = 0;
-        clone_anim = null;
+        reset_anim_hit = false;
 
         is_kill = false;
 
@@ -52,7 +53,7 @@ public class Boss_AI : MonoBehaviour
 
     private void set_level()
     {
-        _sante = 5000;
+        _sante = 2000;
         _dammages = 200;
         _xp = 4000;
     }
@@ -66,6 +67,9 @@ public class Boss_AI : MonoBehaviour
             Transform player = players_collider[0].gameObject.transform;
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
         }
+
+        if (reset_anim_hit)
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animations>().clear_hit_anim();
 
         if (reset_anim == 1)
             reset_anim++;
@@ -82,9 +86,20 @@ public class Boss_AI : MonoBehaviour
         if(timer_anim != 0 && timer_anim + time_before_anim < Time.time)
         {
             GameObject clone = Instantiate(anim, transform);
-            clone_anim = clone;
             Destroy(clone, 2f);
             timer_anim = 0;
+
+            Collider[] dammage_collider = Physics.OverlapSphere(transform.position, 15, playerMask);
+            if(dammage_collider.Length > 0)
+            {
+                dammage_collider[0].gameObject.GetComponent<Animations>().set_hit_anim();
+                GameObject stat = GameObject.FindWithTag("stat");
+                float damage = _dammages / stat.GetComponent<Stats>().get_defense();
+                Gestion_Barre gestion_Barre = GameObject.FindGameObjectWithTag("barre").GetComponent<Gestion_Barre>();
+                gestion_Barre.make_damages(damage);
+                reset_anim_hit = true;
+            }
+
         }
 
         if (time_anim < Time.time)
@@ -139,7 +154,5 @@ public class Boss_AI : MonoBehaviour
             }
         }
     }
-
-
 
 }

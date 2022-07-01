@@ -54,6 +54,11 @@ public class Spawn : MonoBehaviour
             max_ennemis = 15;
             spawn_time = 0.9f;
         }
+
+        if(zone == 3)
+        {
+            max_ennemis = 0;
+        }
     }
 
     private void Instance()

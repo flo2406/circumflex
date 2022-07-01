@@ -86,8 +86,8 @@ public class PlayerControl : MonoBehaviour
         {
             agent.updateRotation = true;
 
-            //GameObject stat = GameObject.FindWithTag("stat");
-            agent.speed = 10f;//stat.GetComponent<Stats>().get_speed() / 2;
+            GameObject stat = GameObject.FindWithTag("stat");
+            agent.speed = stat.GetComponent<Stats>().get_speed() / 2;
 
             targetPosition.y = transform.position.y;
             agent.SetDestination(targetPosition);
