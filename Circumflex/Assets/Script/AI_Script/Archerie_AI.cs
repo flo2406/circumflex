@@ -61,12 +61,12 @@ public class Archerie_AI : MonoBehaviour
             _xp = r.Next(800, 1000);
         }
 
-        else if (val == 3)
+        else if (val == 5)
         {
-            _sante = r.Next(70, 100);
-            _speed = r.Next(7,10);
-            _dammages = r.Next(200, 300);
-            _xp = r.Next(900, 1300);
+            _sante = r.Next(150, 400);
+            _speed = r.Next(10,15);
+            _dammages = r.Next(400, 700);
+            _xp = r.Next(1300, 1700);
         }
 
     }

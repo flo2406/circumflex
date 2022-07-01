@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Randoms = System.Random;
-using Random = UnityEngine.Random;
+using Random = System.Random;
 
 public class AI : MonoBehaviour
 {
@@ -26,11 +25,18 @@ public class AI : MonoBehaviour
 
     private Gestion_Barre gestion_Barre;
 
+    // Stat
+    private float _sante;
+    private float _speed;
+    private int _dammages;
+    private int _xp;
+
     public void Awake()
     {
+        set_level();
+
         agent = GetComponent<NavMeshAgent>();
-        //sante = 100;
-        agent.speed = 5;
+        agent.speed = _speed;
 
         is_kill = false;
 
@@ -46,6 +52,43 @@ public class AI : MonoBehaviour
         
         gestion_Barre = GameObject.FindGameObjectWithTag("barre").GetComponent<Gestion_Barre>();
     }
+
+
+    private void set_level()
+    {
+        Area_info info = GameObject.FindGameObjectWithTag("area_info").GetComponent<Area_info>();
+        int val = info.get_area();
+
+        Random r = new Random();
+
+        if (val == 4)
+        {
+            _sante = r.Next(200, 300);
+            _speed = (float)r.NextDouble();
+            _dammages = r.Next(400, 700);
+            _xp = r.Next(2000, 2500);
+        }
+
+
+        else if (val == 5)
+        {
+            _sante = r.Next(250, 400);
+            _speed = (float)r.NextDouble() * 2;
+            _dammages = r.Next(600, 900);
+            _xp = r.Next(2500, 3500);
+        }
+
+        else if (val == 6)
+        {
+            _sante = r.Next(1000, 1500);
+            _speed = (float)r.NextDouble() * 3;
+            _dammages = r.Next(1000, 1500);
+            _xp = r.Next(4000, 5000);
+        }
+
+    }
+
+
 
     public void Update()
     {
@@ -89,7 +132,7 @@ public class AI : MonoBehaviour
             animator.SetBool(IsWalkingHash, false);
             animator.SetBool(IsPunchingHash, false);
             
-            /*
+            
             Destroy(gameObject);
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
@@ -98,27 +141,27 @@ public class AI : MonoBehaviour
             foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
             {
                 potion.GetComponent<Potion_advance>().one_kill_more();
-            }*/
+            }
         }
     }
 
     
     public void take_dammages(float dammages)
     {
-        sante -= dammages;
-        if(sante <= 0 && !is_kill)
+        _sante -= dammages;
+        if(_sante <= 0 && !is_kill)
         {
             is_kill = true;
 
             Stats stat = GameObject.FindWithTag("stat").GetComponent<Stats>();
-            stat.gain_experience(stat.get_wisdom() / 20 * 600);
+            stat.gain_experience(stat.get_wisdom() / 20 * _xp);
 
             GameObject loot_obj = Instantiate(loot);
             loot_obj.transform.position = gameObject.transform.position;
             Destroy(gameObject);
 
-            //Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
-            //spawn.decrease_monster_number();
+            Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
+            spawn.decrease_monster_number();
 
             foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
             {
@@ -146,7 +189,7 @@ public class AI : MonoBehaviour
                 player.gameObject.GetComponent<Animations>().set_hit_anim();
 
                 GameObject stat = GameObject.FindWithTag("stat");
-                float damage = 300f / stat.GetComponent<Stats>().get_defense();
+                float damage = _dammages / stat.GetComponent<Stats>().get_defense();
                 gestion_Barre.make_damages(damage);
             }
             else

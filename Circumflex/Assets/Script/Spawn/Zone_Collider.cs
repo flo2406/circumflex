@@ -20,6 +20,19 @@ public class Zone_Collider : MonoBehaviour
         {
             zone = 3;
         }
+        else if (gameObject.name == "Terrain4")
+        {
+            zone = 4;
+        }
+        else if(gameObject.name == "Terrain5")
+        {
+            zone = 5;
+        }
+        else if(gameObject.name == "Terrain6")
+        {
+            zone = 6;
+        }
+
     }
 
     void OnCollisionEnter(Collision collision)

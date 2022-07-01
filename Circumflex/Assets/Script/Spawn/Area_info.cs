@@ -18,10 +18,10 @@ public class Area_info : MonoBehaviour
             area = i;
 
         Text txt = GameObject.FindGameObjectWithTag("info_zone").GetComponent<Text>();
-        if (area != 3)
+        if (area != 3 && area != 6)
             txt.text = "Zone : " + area;
         else
-            txt.text = "Zone : 3 (Boss)";
+            txt.text = "Zone : " + area + " (Boss)";
 
         Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
         spawn.change_zone(area);

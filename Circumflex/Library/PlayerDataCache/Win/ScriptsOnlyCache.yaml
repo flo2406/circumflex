@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AI
     - Active_Shield
     - Active_Tornado
     - Active_UI
@@ -127,6 +128,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11526}
     - Class: 114
       Script: {instanceID: 11530}
+    - Class: 114
+      Script: {instanceID: 11594}
     - Class: 114
       Script: {instanceID: 11636}
     - Class: 114
@@ -552,7 +555,7 @@ ScriptsOnlyBuild:
     className: CamMoving
   - hash:
       serializedVersion: 2
-      Hash: 50b63795ba3c96f5b3460567f11a8220
+      Hash: 9a775582cccfb9128e17e5bf8e9295ce
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Spawn
@@ -726,7 +729,7 @@ ScriptsOnlyBuild:
     className: Tornado_Dammage
   - hash:
       serializedVersion: 2
-      Hash: 66198fc5ef54e8495d14a8381662eadf
+      Hash: 0fe8f720a26ec7b6de5e099c0cd5ae75
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Boss_AI
@@ -937,4 +940,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/flori/Documents/Build_Game_Design/Build LO4a/Circumflex.exe
+  playerPath: C:/Users/flori/Documents/Build_Game_Design/Build LO5a/Circumflex.exe

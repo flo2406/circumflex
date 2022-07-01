@@ -9,8 +9,9 @@ public class Spawn : MonoBehaviour
     [SerializeField] private GameObject player;
 
 
-    [SerializeField] private GameObject mutant_ennemy;
+    [SerializeField] private GameObject zombie_ennemy;
     [SerializeField] private GameObject archery_ennemy;
+    [SerializeField] private GameObject mutant_enemy;
     private List<GameObject> different_ennemis;
 
     private int number_of_ennemis;
@@ -29,8 +30,6 @@ public class Spawn : MonoBehaviour
         max_ennemis = 5;
 
         different_ennemis = new List<GameObject>();
-        different_ennemis.Add(mutant_ennemy);
-        different_ennemis.Add(archery_ennemy);
     }
 
     void Update()
@@ -45,20 +44,44 @@ public class Spawn : MonoBehaviour
         zone = new_zone;
         if(zone == 1)
         {
+            different_ennemis.Add(zombie_ennemy);
             max_ennemis = 5;
             spawn_time = 1f;
         }
 
         if (zone == 2)
         {
+            different_ennemis.Add(archery_ennemy);
             max_ennemis = 15;
             spawn_time = 0.9f;
         }
 
         if(zone == 3)
         {
+            different_ennemis.Clear();
             max_ennemis = 0;
         }
+
+        if(zone == 4)
+        {
+            different_ennemis.Add(mutant_enemy);
+            max_ennemis = 25;
+            spawn_time = 0.7f;
+        }
+
+        if(zone == 5)
+        {
+            different_ennemis.Add(archery_ennemy);
+            max_ennemis = 40;
+            spawn_time = 0.7f;
+        }
+
+        if(zone == 6)
+        {
+            different_ennemis.Clear();
+            max_ennemis = 0;
+        }
+
     }
 
     private void Instance()
@@ -79,7 +102,7 @@ public class Spawn : MonoBehaviour
             if (z_sign != 0)
                 z_diff = -z_diff;
 
-            GameObject ennemy = different_ennemis[random.Next(0, zone)];
+            GameObject ennemy = different_ennemis[random.Next(different_ennemis.Count)];
             Instantiate(ennemy, new Vector3(x_diff + middle.x, 2, z_diff + middle.z), Quaternion.identity);
 
             time = Time.time;

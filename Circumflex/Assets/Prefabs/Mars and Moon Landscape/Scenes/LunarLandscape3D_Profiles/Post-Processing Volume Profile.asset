@@ -37,15 +37,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
+  m_Script: {fileID: 0}
   m_Name: Post-Processing Volume Profile
   m_EditorClassIdentifier: 
-  settings:
-  - {fileID: 9139940069679381520}
-  - {fileID: 4317948245097797277}
-  - {fileID: -3476662719600465553}
-  - {fileID: 2761337204547771737}
-  - {fileID: 7372540802836420846}
 --- !u!114 &2761337204547771737
 MonoBehaviour:
   m_ObjectHideFlags: 3

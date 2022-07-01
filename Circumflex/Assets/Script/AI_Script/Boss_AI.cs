@@ -26,6 +26,7 @@ public class Boss_AI : MonoBehaviour
     [SerializeField] private LayerMask playerMask;
 
     private bool is_kill;
+    [SerializeField] private GameObject to_open;
 
     // Stat
     private float _sante;
@@ -53,9 +54,22 @@ public class Boss_AI : MonoBehaviour
 
     private void set_level()
     {
-        _sante = 2000;
-        _dammages = 200;
-        _xp = 4000;
+        Area_info info = GameObject.FindGameObjectWithTag("area_info").GetComponent<Area_info>();
+        int val = info.get_area();
+
+        if (val == 3)
+        {
+            _sante = 2000;
+            _dammages = 400;
+            _xp = 4000;
+        }
+        else
+        {
+            _sante = 15000;
+            _dammages = 1200;
+            _xp = 15000;
+        }
+
     }
 
     void Update()
@@ -124,10 +138,25 @@ public class Boss_AI : MonoBehaviour
         animator.SetBool(IsInvocationHash, true);
         reset_invoc = 1;
         time_invoc += time_between;
-        Instantiate(invoc, new Vector3(24.4f, 1.3f, 388.7f), Quaternion.identity);
-        Instantiate(invoc, new Vector3(4.4f, 1.3f, 388.7f), Quaternion.identity);
-        Instantiate(invoc, new Vector3(14.4f, 1.3f, 398.7f), Quaternion.identity);
-        Instantiate(invoc, new Vector3(14.4f, 1.3f, 378.7f), Quaternion.identity);
+
+        Area_info info = GameObject.FindGameObjectWithTag("area_info").GetComponent<Area_info>();
+        int zone = info.get_area();
+
+        if(zone == 3)
+        {
+            Instantiate(invoc, new Vector3(24.4f, 1.3f, 388.7f), Quaternion.identity);
+            Instantiate(invoc, new Vector3(4.4f, 1.3f, 388.7f), Quaternion.identity);
+            Instantiate(invoc, new Vector3(14.4f, 1.3f, 398.7f), Quaternion.identity);
+            Instantiate(invoc, new Vector3(14.4f, 1.3f, 378.7f), Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(invoc, new Vector3(24.4f, 1.3f, 998.7f), Quaternion.identity);
+            Instantiate(invoc, new Vector3(4.4f, 1.3f, 998.7f), Quaternion.identity);
+            Instantiate(invoc, new Vector3(14.4f, 1.3f, 408.7f), Quaternion.identity);
+            Instantiate(invoc, new Vector3(14.4f, 1.3f, 388.7f), Quaternion.identity);
+        }
+
 
         Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
         spawn.increase_monster_number();
@@ -146,6 +175,7 @@ public class Boss_AI : MonoBehaviour
             Stats stat = GameObject.FindWithTag("stat").GetComponent<Stats>();
             stat.gain_experience(stat.get_wisdom() / 20 * _xp);
 
+            to_open.SetActive(false);
             Destroy(gameObject);
 
             foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
