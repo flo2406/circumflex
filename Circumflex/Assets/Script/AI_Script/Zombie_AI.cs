@@ -117,19 +117,15 @@ public class Zombie_AI : MonoBehaviour
         }
         else
         {
-            agent.SetDestination(transform.position);
-            animator.SetBool(IsPunchingHash, false);
-
-            
             Destroy(gameObject);
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
             spawn.decrease_monster_number();
 
-            foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
+            /*foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
             {
                 potion.GetComponent<Potion_advance>().one_kill_more();
-            }
+            }*/
         }
     }
 

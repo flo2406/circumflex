@@ -142,7 +142,7 @@ public class Boss_AI : MonoBehaviour
         Area_info info = GameObject.FindGameObjectWithTag("area_info").GetComponent<Area_info>();
         int zone = info.get_area();
 
-        if(zone == 3)
+        if(gameObject.name == "Boss1")
         {
             Instantiate(invoc, new Vector3(24.4f, 1.3f, 388.7f), Quaternion.identity);
             Instantiate(invoc, new Vector3(4.4f, 1.3f, 388.7f), Quaternion.identity);
@@ -153,8 +153,8 @@ public class Boss_AI : MonoBehaviour
         {
             Instantiate(invoc, new Vector3(24.4f, 1.3f, 998.7f), Quaternion.identity);
             Instantiate(invoc, new Vector3(4.4f, 1.3f, 998.7f), Quaternion.identity);
-            Instantiate(invoc, new Vector3(14.4f, 1.3f, 408.7f), Quaternion.identity);
-            Instantiate(invoc, new Vector3(14.4f, 1.3f, 388.7f), Quaternion.identity);
+            Instantiate(invoc, new Vector3(14.4f, 1.3f, 1008.7f), Quaternion.identity);
+            Instantiate(invoc, new Vector3(14.4f, 1.3f, 988.7f), Quaternion.identity);
         }
 
 

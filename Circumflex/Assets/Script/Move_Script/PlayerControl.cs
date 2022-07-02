@@ -49,7 +49,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            
+
             RaycastHit hit_ennemy;
 
             if (Physics.Raycast(cam.transform.position, ray.direction, out hit_ennemy, 1000, ennemy_layer))
@@ -71,7 +71,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         if (attack_ennemy != null)
-        {  
+        {
             targetPosition = attack_ennemy.transform.position;
             targetPosition.y = transform.position.y;
 
@@ -103,5 +103,10 @@ public class PlayerControl : MonoBehaviour
     public Vector3 get_TargetPosition()
     {
         return targetPosition;
+    }
+
+    public void reset_TargetPosition()
+    {
+        targetPosition = transform.position;
     }
 }

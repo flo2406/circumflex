@@ -34,7 +34,7 @@ public class Spawn : MonoBehaviour
 
     void Update()
     {
-        if(zone == 1 || zone == 2)
+        if(zone == 1 || zone == 2 || zone == 4 || zone == 5)
             Instance();
     }
 
@@ -44,6 +44,7 @@ public class Spawn : MonoBehaviour
         zone = new_zone;
         if(zone == 1)
         {
+            different_ennemis.Clear();
             different_ennemis.Add(zombie_ennemy);
             max_ennemis = 5;
             spawn_time = 1f;
@@ -64,6 +65,7 @@ public class Spawn : MonoBehaviour
 
         if(zone == 4)
         {
+            different_ennemis.Clear();
             different_ennemis.Add(mutant_enemy);
             max_ennemis = 25;
             spawn_time = 0.7f;

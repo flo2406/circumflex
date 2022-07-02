@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - Archerie_AI
     - Area_info
     - Arrow_dammage
+    - Arrow_direction
     - Boss_AI
     - CamMoving
     - Create_inventary
@@ -34,6 +35,7 @@ ScriptsOnlyBuild:
     - Stat_Armor
     - Stats
     - Strength
+    - Timer
     - Tornado_Dammage
     - Vitality
     - Wisdom
@@ -44,8 +46,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -202,6 +206,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13168}
     - Class: 114
       Script: {instanceID: 13188}
+    - Class: 114
+      Script: {instanceID: 38660}
+    - Class: 114
+      Script: {instanceID: 90384}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -495,7 +503,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 60c02c39e9dc3d2b3703cc0beb3b5e98
+      Hash: ffca44d6ed5b442acc38c85f6e8d094d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Gestion_Barre
@@ -937,7 +945,19 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: cb388211f5604d2b6aa05f7a54ebd93c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Arrow_direction
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Timer
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/flori/Documents/Build_Game_Design/Build LO5a/Circumflex.exe
+  playerPath: C:/Users/flori/Documents/Build_Game_Design/Build LO4b/Circumflex.exe

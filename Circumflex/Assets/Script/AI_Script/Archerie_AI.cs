@@ -107,6 +107,19 @@ public class Archerie_AI : MonoBehaviour
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
             agent.SetDestination(new Vector3(player.position.x, transform.position.y, player.position.z));
         }
+
+        else
+        { 
+            Destroy(gameObject);
+
+            Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
+            spawn.decrease_monster_number();
+
+            /*foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
+            {
+                potion.GetComponent<Potion_advance>().one_kill_more();
+            }*/
+        }
     }
 
 

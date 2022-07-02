@@ -78,6 +78,7 @@
      <Compile Include="Assets\Script\Inventary_UI_Script\Loot.cs" />
      <Compile Include="Assets\Script\Inventary_UI_Script\Stat_Armor.cs" />
      <Compile Include="Assets\Script\Move_Script\Animations.cs" />
+     <Compile Include="Assets\Script\Move_Script\Arrow_direction.cs" />
      <Compile Include="Assets\Script\Move_Script\CamMoving.cs" />
      <Compile Include="Assets\Script\Move_Script\Lootage.cs" />
      <Compile Include="Assets\Script\Move_Script\PlayerControl.cs" />
@@ -100,6 +101,7 @@
      <Compile Include="Assets\Script\Stat_UI_Script\Strength.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Vitality.cs" />
      <Compile Include="Assets\Script\Stat_UI_Script\Wisdom.cs" />
+     <Compile Include="Assets\Script\Timer.cs" />
      <None Include="Assets\Prefabs\QuickOutline\Resources\Shaders\OutlineMask.shader" />
      <None Include="Assets\Prefabs\MagicEffectsPackFree\ReadMe.txt" />
      <None Include="Assets\Prefabs\QuickOutline\Readme.txt" />

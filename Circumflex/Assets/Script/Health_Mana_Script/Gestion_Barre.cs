@@ -14,6 +14,9 @@ public class Gestion_Barre : MonoBehaviour
     [SerializeField] private Image health_barre;
     [SerializeField] private Image mana_barre;
 
+    [SerializeField] private Transform zone1;
+    [SerializeField] private Transform zone2;
+
     void Start()
     {
         health = 100f;
@@ -26,8 +29,28 @@ public class Gestion_Barre : MonoBehaviour
     public void make_damages(float dammages)
     {
         health -= dammages;
-        if(health < 0)
-            health = 0;
+        if(health <= 0)
+        {
+            Area_info info = GameObject.FindGameObjectWithTag("area_info").GetComponent<Area_info>();
+            int area = info.get_area();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+            player.SetActive(false);
+            if (area <= 3)
+                player.transform.position = zone1.position;
+
+            else
+                player.transform.position = zone2.position;
+
+            player.GetComponent<PlayerControl>().reset_TargetPosition();
+            player.SetActive(true);
+
+            GameObject.FindGameObjectWithTag("timer").GetComponent<Timer>().add_mulus();
+
+            info.kill_reset_area();
+            health = health_max;
+            mana = mana_max;  
+        }
     }
 
     public bool use_mana(float use)

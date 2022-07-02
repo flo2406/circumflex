@@ -27,6 +27,20 @@ public class Area_info : MonoBehaviour
         spawn.change_zone(area);
     }
 
+    public void kill_reset_area()
+    {
+        if (area < 4)
+            area = 1;
+        else
+            area = 4;
+
+        Text txt = GameObject.FindGameObjectWithTag("info_zone").GetComponent<Text>();
+        txt.text = "Zone : " + area;
+
+        Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
+        spawn.change_zone(area);
+    }
+
     public int get_area()
     {
         return area;

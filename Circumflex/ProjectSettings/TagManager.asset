@@ -17,6 +17,7 @@ TagManager:
   - potion
   - info_zone
   - area_info
+  - timer
   layers:
   - Default
   - TransparentFX
