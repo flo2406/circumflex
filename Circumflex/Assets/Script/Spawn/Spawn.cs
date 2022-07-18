@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class Spawn : MonoBehaviour
 {
-    private float time; 
+    private float time;
     [SerializeField] private GameObject player;
 
 
@@ -21,6 +22,22 @@ public class Spawn : MonoBehaviour
 
     private int zone;
 
+
+    // Tab for zone 1/2/4/5
+    private int[] number_of_kill;
+    private int[] kill_to_clear;
+
+
+    [SerializeField] private GameObject side1;
+    [SerializeField] private GameObject side2;
+    [SerializeField] private GameObject side3;
+    [SerializeField] private GameObject side4;
+    [SerializeField] private GameObject side5;
+    [SerializeField] private GameObject side6;
+
+    private GameObject[] side_objects;
+
+
     void Start()
     {
         time = Time.time;
@@ -30,6 +47,10 @@ public class Spawn : MonoBehaviour
         max_ennemis = 5;
 
         different_ennemis = new List<GameObject>();
+
+        number_of_kill = new int[] { 0, 0, 0, 0, 0, 0 };
+        kill_to_clear = new int[] { 10, 25, 0, 40, 50, 0 };
+        side_objects = new GameObject[] { side1, side2, side3, side4, side5, side6 };
     }
 
     void Update()
@@ -112,8 +133,40 @@ public class Spawn : MonoBehaviour
         }
     }
 
-    public void decrease_monster_number()
+
+
+    public void make_text_info_zone()
     {
+        Text txt = GameObject.FindGameObjectWithTag("info_zone").GetComponent<Text>();
+        if (zone != 3 && zone != 6)
+        {
+            txt.text = "Zone : " + zone;
+            txt.text += "\n\n";
+            txt.text += number_of_kill[zone - 1] + " kills / " + kill_to_clear[zone - 1];
+
+        }
+        else
+            txt.text = "Zone : " + zone + " (Boss)";
+
+    }
+
+
+
+
+
+
+
+    public void decrease_monster_number(bool kill)
+    {
+        make_text_info_zone();
+        if (kill)
+        {
+            number_of_kill[zone - 1]++;
+            Debug.Log(number_of_kill[zone - 1]);
+            if (kill_to_clear[zone - 1] <= number_of_kill[zone - 1] && (zone != 3 && zone != 6))
+                side_objects[zone - 1].SetActive(false);
+        }
+
         number_of_ennemis--;
     }
 

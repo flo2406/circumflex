@@ -14,17 +14,12 @@ public class Area_info : MonoBehaviour
 
     public void set_area(int i)
     {
-        if(area != 3)
+        if(area != 3 && area != 6)
             area = i;
-
-        Text txt = GameObject.FindGameObjectWithTag("info_zone").GetComponent<Text>();
-        if (area != 3 && area != 6)
-            txt.text = "Zone : " + area;
-        else
-            txt.text = "Zone : " + area + " (Boss)";
 
         Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
         spawn.change_zone(area);
+        spawn.make_text_info_zone();
     }
 
     public void kill_reset_area()

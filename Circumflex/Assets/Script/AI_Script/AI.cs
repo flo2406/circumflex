@@ -129,7 +129,7 @@ public class AI : MonoBehaviour
             Destroy(gameObject);
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
-            spawn.decrease_monster_number();
+            spawn.decrease_monster_number(false);
 
             /*foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
             {
@@ -154,7 +154,7 @@ public class AI : MonoBehaviour
             Destroy(gameObject);
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
-            spawn.decrease_monster_number();
+            spawn.decrease_monster_number(true);
 
             foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
             {

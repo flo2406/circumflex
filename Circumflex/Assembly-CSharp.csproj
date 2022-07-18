@@ -83,12 +83,6 @@
      <Compile Include="Assets\Script\Move_Script\Lootage.cs" />
      <Compile Include="Assets\Script\Move_Script\PlayerControl.cs" />
      <Compile Include="Assets\Script\Potion\Potion_advance.cs" />
-     <Compile Include="Assets\Script\Script_for_cube\AI_For_Cube.cs" />
-     <Compile Include="Assets\Script\Script_for_cube\Dammages_for_cube.cs" />
-     <Compile Include="Assets\Script\Script_for_cube\Electic_for_cube.cs" />
-     <Compile Include="Assets\Script\Script_for_cube\Fireball_Cube.cs" />
-     <Compile Include="Assets\Script\Script_for_cube\Follow_rotation.cs" />
-     <Compile Include="Assets\Script\Script_for_cube\Zone_collider.cs" />
      <Compile Include="Assets\Script\Spawn\Area_info.cs" />
      <Compile Include="Assets\Script\Spawn\Spawn.cs" />
      <Compile Include="Assets\Script\Spawn\Zone_Collider.cs" />
