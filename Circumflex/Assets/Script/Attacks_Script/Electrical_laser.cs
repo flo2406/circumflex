@@ -22,13 +22,15 @@ public class Electrical_laser : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(keyCode))
+        bool shield = GetComponent<Active_Shield>().have_shield();
+
+        if (Input.GetKeyDown(keyCode) && !shield)
         {
             gestion_Barre.use_mana(5f);
             have_to_send = true;
         }
 
-        if (Input.GetKeyUp(keyCode))
+        if (Input.GetKeyUp(keyCode) || shield)
             have_to_send = false;
 
         if (have_to_send)

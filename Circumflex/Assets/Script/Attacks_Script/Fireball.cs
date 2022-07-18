@@ -21,7 +21,11 @@ public class Fireball : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(keyCode) && (throwed || gestion_Barre.use_mana(20f)))
+        bool shield = GetComponent<Active_Shield>().have_shield();
+        if (shield)
+            return;
+
+        if (Input.GetKey(keyCode) && (throwed || gestion_Barre.use_mana(20f)))
         {
             throwed = true;
             gameObject.GetComponentInParent<Animations>().set_throw_anim("fireball");

@@ -26,7 +26,7 @@ public class Active_Shield : MonoBehaviour
             shield.SetActive(!shield.activeSelf);
         }
 
-        if (actif)
+        /*if (actif)
         {
             bool res = gestion_Barre.use_mana(0.1f);
             if(!res)
@@ -34,7 +34,7 @@ public class Active_Shield : MonoBehaviour
                 actif = !actif;
                 shield.SetActive(!shield.activeSelf);
             }
-        }
+        }*/
     }
 
     public bool have_shield()

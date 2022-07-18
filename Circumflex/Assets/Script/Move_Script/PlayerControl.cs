@@ -75,7 +75,11 @@ public class PlayerControl : MonoBehaviour
             targetPosition = attack_ennemy.transform.position;
             targetPosition.y = transform.position.y;
 
-            if ((targetPosition - transform.position).magnitude < 3f)
+            bool shield = GetComponentInChildren<Active_Shield>().have_shield();
+            if (shield)
+                attack_ennemy = null;
+
+            else if ((targetPosition - transform.position).magnitude < 3)
             {
                 gameObject.GetComponent<Animations>().set_slash_anim(attack_ennemy);
                 attack_ennemy = null;

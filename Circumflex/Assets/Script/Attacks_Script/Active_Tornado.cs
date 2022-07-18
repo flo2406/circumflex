@@ -20,7 +20,16 @@ public class Active_Tornado : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(keyCode))
+        bool shield = GetComponent<Active_Shield>().have_shield();
+        if(shield)
+        {
+            gameObject.GetComponentInParent<Animations>().clear_tornado_anim();
+            tornado.SetActive(false);
+            active = false;
+        }
+
+
+        else if (Input.GetKeyDown(keyCode))
         {
             if (!active)
             {
