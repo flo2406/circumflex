@@ -14175,6 +14175,7 @@ MonoBehaviour:
   side4: {fileID: 293634783}
   side5: {fileID: 594184139}
   side6: {fileID: 594184139}
+  arrow: {fileID: 1011706974}
 --- !u!1 &1394515115
 GameObject:
   m_ObjectHideFlags: 0

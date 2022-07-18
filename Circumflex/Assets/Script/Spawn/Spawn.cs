@@ -34,9 +34,11 @@ public class Spawn : MonoBehaviour
     [SerializeField] private GameObject side4;
     [SerializeField] private GameObject side5;
     [SerializeField] private GameObject side6;
-
     private GameObject[] side_objects;
 
+    private int zone_open;
+    [SerializeField] private GameObject arrow;
+   
 
     void Start()
     {
@@ -51,12 +53,19 @@ public class Spawn : MonoBehaviour
         number_of_kill = new int[] { 0, 0, 0, 0, 0, 0 };
         kill_to_clear = new int[] { 10, 25, 0, 40, 50, 0 };
         side_objects = new GameObject[] { side1, side2, side3, side4, side5, side6 };
+        
+        zone_open = 1;
     }
 
     void Update()
     {
         if(zone == 1 || zone == 2 || zone == 4 || zone == 5)
             Instance();
+
+        if (zone_open > zone)
+            arrow.SetActive(true);
+        else
+            arrow.SetActive(false);
     }
 
 
@@ -151,11 +160,6 @@ public class Spawn : MonoBehaviour
     }
 
 
-
-
-
-
-
     public void decrease_monster_number(bool kill)
     {
         make_text_info_zone();
@@ -164,7 +168,10 @@ public class Spawn : MonoBehaviour
             number_of_kill[zone - 1]++;
             Debug.Log(number_of_kill[zone - 1]);
             if (kill_to_clear[zone - 1] <= number_of_kill[zone - 1] && (zone != 3 && zone != 6))
+            {
                 side_objects[zone - 1].SetActive(false);
+                zone_open++;
+            }
         }
 
         number_of_ennemis--;
