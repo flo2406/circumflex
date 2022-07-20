@@ -22489,11 +22489,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e804234f1e74a43ab874705ac07386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button_vitality: {fileID: 494875905396974808}
-  button_wisdom: {fileID: 7561226712944701743}
-  button_strength: {fileID: 7170862400488385140}
-  button_defense: {fileID: 299141759932130460}
-  button_speed: {fileID: 688504569129137708}
+  button_vitality: {fileID: 1025687190485504540}
+  button_wisdom: {fileID: 4021026008957923971}
+  button_strength: {fileID: 7550415098979540620}
+  button_defense: {fileID: 4274011934144577252}
+  button_speed: {fileID: 2505363807762188374}
 --- !u!1 &207115977968669184
 GameObject:
   m_ObjectHideFlags: 0
