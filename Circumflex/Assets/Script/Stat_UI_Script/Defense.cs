@@ -10,17 +10,21 @@ public class Defense : MonoBehaviour
     private int defense_armor;
     [SerializeField] private Nb_Points nb_Points;
 
+    private Gestion_Barre gestion_Barre;
+
     void Start()
     {
         text = GetComponent<Text>();
-        defense_competence = 20;
+        defense_competence = 100;
         defense_armor = 0;
         To_Str();
+
+        gestion_Barre = GameObject.FindGameObjectWithTag("barre").GetComponent<Gestion_Barre>();
     }
 
     void To_Str()
     {
-        text.text = "Defense :   " + defense_competence + "  (";
+        text.text = "Mana :   " + defense_competence + "  (";
         if (defense_armor >= 0)
             text.text += "+";
         text.text += defense_armor + ")";
@@ -29,11 +33,13 @@ public class Defense : MonoBehaviour
     public void On_Click_Button()
     {
         nb_Points.use_points();
-        defense_competence += 10;
+        defense_competence += 20;
         To_Str();
 
         GameObject stat = GameObject.FindWithTag("stat");
         stat.GetComponent<Stats>().set_defense(defense_armor + defense_competence);
+
+        gestion_Barre.set_mana(defense_armor + defense_competence);
     }
 
     public void set_defense_armor(int def)
@@ -43,5 +49,7 @@ public class Defense : MonoBehaviour
 
         GameObject stat = GameObject.FindWithTag("stat");
         stat.GetComponent<Stats>().set_defense(defense_armor + defense_competence);
+
+        gestion_Barre.set_mana(defense_armor + defense_competence);
     }
 }

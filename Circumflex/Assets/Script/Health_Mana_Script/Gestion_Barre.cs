@@ -74,6 +74,13 @@ public class Gestion_Barre : MonoBehaviour
         health = percent;
     }
 
+    public void set_mana(float new_mana)
+    {
+        int percent = (int)(mana * new_mana / mana_max);
+        mana_max = new_mana;
+        mana = percent;
+    }
+
     public void health_potion()
     {
         health += 0.2f * health_max;

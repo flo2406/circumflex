@@ -127,7 +127,7 @@ public class Info_Storage : MonoBehaviour
         if (stat_defense > 0)
         {
             Text t = get_str(begin + i);
-            t.text = "+ " + stat_defense + " defense";
+            t.text = "+ " + stat_defense + " mana";
             i++;
         }
         if (stat_speed > 0)

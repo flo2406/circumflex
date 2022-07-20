@@ -329,9 +329,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9a400000
+      m_SelectedIDs: b42d0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 6afbfffffa400000
+      m_ExpandedIDs: 6afbffff88400000fa400000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -483,9 +483,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -137.3806, y: 157.33577, z: 395.8142}
+    m_Target: {x: -161.80318, y: 78.086075, z: 542.15424}
     speed: 2
-    m_Value: {x: -137.3806, y: 157.33577, z: 395.8142}
+    m_Value: {x: -161.80318, y: 78.086075, z: 542.15424}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -531,13 +531,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.12084026, y: -0.68029606, z: 0.11514989, w: -0.71371704}
+    m_Target: {x: -0.16888207, y: -0.69814533, z: 0.17505755, w: -0.6734124}
     speed: 2
-    m_Value: {x: -0.12083685, y: -0.6802769, z: 0.11514664, w: -0.7136969}
+    m_Value: {x: -0.16887721, y: -0.6981253, z: 0.17505251, w: -0.673393}
   m_Size:
-    m_Target: 153.98479
+    m_Target: 141.75883
     speed: 2
-    m_Value: 153.98479
+    m_Value: 141.75883
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -733,19 +733,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Script/Stat_UI_Script
+    - Assets/Script/Inventary_UI_Script
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Script/Stat_UI_Script
+  - Assets/Script/Inventary_UI_Script
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\flori\Documents\Projet_Circumflex\circumflex\Circumflex
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 474}
-    m_SelectedIDs: 30490000
-    m_LastClickedID: 18736
+    m_SelectedIDs: 28490000
+    m_LastClickedID: 18728
     m_ExpandedIDs: 00000000ce480000d0480000d2480000d4480000d6480000d8480000da480000dc480000de480000e0480000e2480000e4480000e648000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -882,7 +882,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 384}
     m_SelectedIDs: de480000
     m_LastClickedID: 18654
-    m_ExpandedIDs: 00000000ce480000d0480000d2480000d4480000d6480000d8480000da480000dc480000de480000e0480000e2480000e4480000e648000000ca9a3b
+    m_ExpandedIDs: 00000000ce480000d0480000d2480000d4480000d6480000d8480000da480000dc480000de480000e0480000e2480000e4480000e6480000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1173,4 +1173,4 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 100
