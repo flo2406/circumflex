@@ -133,8 +133,13 @@ public class Archerie_AI : MonoBehaviour
             Stats stat = GameObject.FindWithTag("stat").GetComponent<Stats>();
             stat.gain_experience(stat.get_wisdom() / 20 * _xp);
 
-            GameObject loot_obj = Instantiate(loot);
-            loot_obj.transform.position = gameObject.transform.position;
+            Random r = new Random();
+            if (r.Next(0, 100) > 60)
+            {
+                GameObject loot_obj = Instantiate(loot);
+                loot_obj.transform.position = gameObject.transform.position;
+            }
+
             Destroy(gameObject);
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();

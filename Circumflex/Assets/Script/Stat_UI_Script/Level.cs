@@ -22,7 +22,7 @@ public class Level : MonoBehaviour
     {
         text.text = "Level " + stats.get_level();
         int diff = stats.get_level() - level;
-        points.add_nb_points(diff * 10);
+        points.add_nb_points(diff);
         level = stats.get_level();
     }
 }

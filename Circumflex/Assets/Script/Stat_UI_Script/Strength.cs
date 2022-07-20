@@ -29,7 +29,7 @@ public class Strength : MonoBehaviour
     public void On_Click_Button()
     {
         nb_Points.use_points();
-        strength_competence += 1;
+        strength_competence += 10;
         To_Str();
 
         GameObject stat = GameObject.FindWithTag("stat");

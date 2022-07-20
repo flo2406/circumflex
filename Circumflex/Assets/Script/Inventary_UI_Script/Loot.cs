@@ -21,14 +21,17 @@ public class Loot : MonoBehaviour
     {
         ui = GameObject.FindGameObjectWithTag("Inventary_Data");
 
+        Area_info info = GameObject.FindGameObjectWithTag("area_info").GetComponent<Area_info>();
+        int area = info.get_area();
+
         Random r = new Random();
         rarety = r.Next(4);
 
-        vitality = rarety * 100 + r.Next(500);
-        wisdom = rarety * 10 + r.Next(50);
-        strength = rarety * 20 + r.Next(100);
-        defense = rarety * 20 + r.Next(100);
-        speed = rarety * 20 + r.Next(100);
+        vitality = (rarety + area) * 10  + r.Next(area * 15);
+        wisdom = (rarety + area) * 10 + r.Next(area * 15);
+        strength = (rarety + area) * 2 + r.Next(area * 5);
+        defense = (rarety + area) * 2 + r.Next(area * 5);
+        speed = (rarety + area);
 
         type = (Type) r.Next(2,8);
 

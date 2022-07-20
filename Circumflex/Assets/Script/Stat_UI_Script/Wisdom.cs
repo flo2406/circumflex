@@ -29,11 +29,11 @@ public class Wisdom : MonoBehaviour
     public void On_Click_Button()
     {
         nb_Points.use_points();
-        wisdom_competence += 1;
+        wisdom_competence += 10;
         To_Str();
 
         GameObject stat = GameObject.FindWithTag("stat");
-        stat.GetComponent<Stats>().set_vitality(wisdom_armor + wisdom_competence);
+        stat.GetComponent<Stats>().set_wisdom(wisdom_armor + wisdom_competence);
     }
 
     public void set_wisdom_armor(int wis)
@@ -42,6 +42,6 @@ public class Wisdom : MonoBehaviour
         To_Str();
 
         GameObject stat = GameObject.FindWithTag("stat");
-        stat.GetComponent<Stats>().set_vitality(wisdom_armor + wisdom_competence);
+        stat.GetComponent<Stats>().set_wisdom(wisdom_armor + wisdom_competence);
     }
 }

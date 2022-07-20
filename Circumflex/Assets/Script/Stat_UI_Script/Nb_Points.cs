@@ -18,8 +18,8 @@ public class Nb_Points : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-        nb_points = 10;
-        text.text = "Points capital : 10";
+        nb_points = 1;
+        text.text = "Points capital : 1";
         arr_button = new List<Button>();
         arr_button.Add(button_vitality);
         arr_button.Add(button_wisdom);

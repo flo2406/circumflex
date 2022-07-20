@@ -14,8 +14,7 @@ public class Area_info : MonoBehaviour
 
     public void set_area(int i)
     {
-        if(area != 3 && area != 6)
-            area = i;
+        area = i;
 
         Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
         spawn.change_zone(area);
@@ -29,11 +28,9 @@ public class Area_info : MonoBehaviour
         else
             area = 4;
 
-        Text txt = GameObject.FindGameObjectWithTag("info_zone").GetComponent<Text>();
-        txt.text = "Zone : " + area;
-
         Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
         spawn.change_zone(area);
+        spawn.make_text_info_zone();
     }
 
     public int get_area()

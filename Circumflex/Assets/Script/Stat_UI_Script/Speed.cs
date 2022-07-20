@@ -29,11 +29,11 @@ public class Speed : MonoBehaviour
     public void On_Click_Button()
     {
         nb_Points.use_points();
-        speed_competence += 1;
+        speed_competence += 10;
         To_Str();
 
         GameObject stat = GameObject.FindWithTag("stat");
-        stat.GetComponent<Stats>().set_vitality(speed_armor + speed_competence);
+        stat.GetComponent<Stats>().set_speed(speed_armor + speed_competence);
     }
     public void set_speed_armor(int spe)
     {

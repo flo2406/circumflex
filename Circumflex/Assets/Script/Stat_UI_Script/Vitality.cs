@@ -32,7 +32,7 @@ public class Vitality : MonoBehaviour
     public void On_Click_Button()
     {
         nb_Points.use_points();
-        vitality_competence += 5;
+        vitality_competence += 50;
         To_Str();
 
         GameObject stat = GameObject.FindWithTag("stat");

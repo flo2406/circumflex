@@ -20,7 +20,6 @@ public class Move_high : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(y);
         set_y();
         if (activated && y < 72)
             y += 0.003f;
@@ -31,8 +30,8 @@ public class Move_high : MonoBehaviour
         else if (y > 68)
             y-= 0.003f;
 
-        //if (last_act + time_between_act < Time.time)
-            //activate();
+        if (last_act + time_between_act < Time.time)
+            activate();
 
     }
 
