@@ -20,7 +20,7 @@ public class Nb_Points : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-        nb_points = 10;
+        nb_points = 1;
         text.text = "Points capital : 1";
         arr_button = new List<GameObject>();
         arr_button.Add(button_vitality);

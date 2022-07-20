@@ -178,7 +178,7 @@ public class Zombie_AI : MonoBehaviour
                 player.gameObject.GetComponent<Animations>().set_hit_anim();
 
                 GameObject stat = GameObject.FindWithTag("stat");
-                float damage = _dammages / stat.GetComponent<Stats>().get_defense();
+                float damage = _dammages / 20;
                 gestion_Barre.make_damages(damage);
             }
             else

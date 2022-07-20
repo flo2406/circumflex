@@ -108,7 +108,7 @@ public class Boss_AI : MonoBehaviour
             {
                 dammage_collider[0].gameObject.GetComponent<Animations>().set_hit_anim();
                 GameObject stat = GameObject.FindWithTag("stat");
-                float damage = _dammages / stat.GetComponent<Stats>().get_defense();
+                float damage = _dammages / 20;
                 Gestion_Barre gestion_Barre = GameObject.FindGameObjectWithTag("barre").GetComponent<Gestion_Barre>();
                 gestion_Barre.make_damages(damage);
                 reset_anim_hit = true;

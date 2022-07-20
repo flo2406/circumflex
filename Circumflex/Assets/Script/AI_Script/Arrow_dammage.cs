@@ -53,7 +53,7 @@ public class Arrow_dammage : MonoBehaviour
                 clear_anim = 1;
 
                 GameObject stat = GameObject.FindWithTag("stat");
-                float dammage = dammages / stat.GetComponent<Stats>().get_defense();
+                float dammage = dammages / 20;
                 gestion_Barre.make_damages(dammage);
             }
         }

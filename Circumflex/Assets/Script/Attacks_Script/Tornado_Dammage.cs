@@ -9,7 +9,7 @@ public class Tornado_Dammage : MonoBehaviour
         if(other.gameObject.tag == "ennemi")
         {
             Stats stat = GameObject.FindWithTag("stat").GetComponent<Stats>();
-            float dammage = stat.get_strength() / 10;
+            float dammage = stat.get_strength() / 15;
 
             AI ai = other.gameObject.GetComponent<AI>();
             if (ai != null)
@@ -26,7 +26,6 @@ public class Tornado_Dammage : MonoBehaviour
             Boss_AI boss = other.gameObject.GetComponent<Boss_AI>();
             if (boss != null)
                 boss.take_dammages(dammage);
-
         }
     }
 }
