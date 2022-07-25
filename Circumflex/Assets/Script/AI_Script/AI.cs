@@ -9,8 +9,10 @@ public class AI : MonoBehaviour
     private NavMeshAgent agent;
     private int rangeFollow;
     private float rangeAttack;
+    private float rangeCheck;
 
     [SerializeField] private LayerMask playerMask;
+    [SerializeField] private LayerMask ennemyMask;
 
 
     private Animator animator;
@@ -19,7 +21,6 @@ public class AI : MonoBehaviour
     private float start_punch_anim;
     private float end_punch_anim;
 
-    [SerializeField] private float sante;
     [SerializeField] private GameObject loot;
     private bool is_kill;
 
@@ -42,6 +43,7 @@ public class AI : MonoBehaviour
 
         rangeFollow = 50;
         rangeAttack = 7f;
+        rangeCheck = 5f;
 
 
         animator = GetComponent<Animator>();
@@ -95,7 +97,9 @@ public class AI : MonoBehaviour
         Collider[] players_collider = Physics.OverlapSphere(transform.position, rangeFollow, playerMask);
         Collider[] players_near = Physics.OverlapSphere(transform.position, rangeAttack, playerMask);
 
-        if (players_near.Length != 0)
+        Collider[] ennemies_near = Physics.OverlapSphere(transform.position, rangeCheck, ennemyMask);
+
+        if (players_near.Length != 0 && ennemies_near.Length <= 7)
         {
             Transform player = players_collider[0].transform;
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));           
@@ -110,7 +114,7 @@ public class AI : MonoBehaviour
                 throw_anim(player, true);
         }
 
-        else if (players_collider.Length != 0)
+        else if (players_collider.Length != 0 && ennemies_near.Length <= 7)
         {
             Transform player = players_collider[0].transform;
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
@@ -130,11 +134,6 @@ public class AI : MonoBehaviour
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
             spawn.decrease_monster_number(false);
-
-            /*foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
-            {
-                potion.GetComponent<Potion_advance>().one_kill_more();
-            }*/
         }
     }
 

@@ -5,15 +5,15 @@ using UnityEngine;
 public class Lootage : MonoBehaviour
 {
     [SerializeField] private Material mat;
-    [SerializeField] private Material basicMat;
+    //[SerializeField] private Material basicMat;
 
-    private void OnTriggerExit(Collider other)
+    /*private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "loot")
         {
             other.gameObject.GetComponent<MeshRenderer>().material = basicMat;
         }
-    }
+    }*/
 
     private void OnTriggerStay(Collider other)
     {

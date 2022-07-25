@@ -7,9 +7,10 @@ public class Zombie_AI : MonoBehaviour
     private NavMeshAgent agent;
     private int rangeFollow;
     private float rangeAttack;
+    private float rangeCheck;
 
     [SerializeField] private LayerMask playerMask;
-
+    [SerializeField] private LayerMask ennemyMask;
 
     private Animator animator;
     private int IsPunchingHash;
@@ -37,6 +38,7 @@ public class Zombie_AI : MonoBehaviour
 
         rangeFollow = 50;
         rangeAttack = 2f;
+        rangeCheck = 5f;
         agent.speed = _speed;
 
 
@@ -88,7 +90,9 @@ public class Zombie_AI : MonoBehaviour
         Collider[] players_collider = Physics.OverlapSphere(transform.position, rangeFollow, playerMask);
         Collider[] players_near = Physics.OverlapSphere(transform.position, rangeAttack, playerMask);
 
-        if (players_near.Length != 0)
+        Collider[] ennemies_near = Physics.OverlapSphere(transform.position, rangeCheck, ennemyMask);
+
+        if (players_near.Length != 0 && ennemies_near.Length <= 7)
         {
             Transform player = players_collider[0].transform;
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
@@ -102,7 +106,7 @@ public class Zombie_AI : MonoBehaviour
                 throw_anim(player, true);
         }
 
-        else if (players_collider.Length != 0)
+        else if (players_collider.Length != 0 && ennemies_near.Length <= 7)
         {
             Transform player = players_collider[0].transform;
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
@@ -121,11 +125,6 @@ public class Zombie_AI : MonoBehaviour
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
             spawn.decrease_monster_number(false);
-
-            /*foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
-            {
-                potion.GetComponent<Potion_advance>().one_kill_more();
-            }*/
         }
     }
 

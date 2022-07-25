@@ -12,8 +12,10 @@ public class Archerie_AI : MonoBehaviour
     private NavMeshAgent agent;
     private int rangeFollow;
     private float rangeAttack;
+    private float rangeCheck;
 
     [SerializeField] private LayerMask playerMask;
+    [SerializeField] private LayerMask ennemyMask;
 
     private Animator animator;
     private int IsThrowingHash;
@@ -36,6 +38,7 @@ public class Archerie_AI : MonoBehaviour
 
         rangeFollow = 50;
         rangeAttack = 15f;
+        rangeCheck = 5f;
         agent.speed = _speed;
 
         forceForward = 10000;
@@ -78,7 +81,9 @@ public class Archerie_AI : MonoBehaviour
         Collider[] players_collider = Physics.OverlapSphere(transform.position, rangeFollow, playerMask);
         Collider[] players_near = Physics.OverlapSphere(transform.position, rangeAttack, playerMask);
 
-        if (players_near.Length != 0)
+        Collider[] ennemies_near = Physics.OverlapSphere(transform.position, rangeCheck, ennemyMask);
+
+        if (players_near.Length != 0 && ennemies_near.Length <= 4)
         {
             animator.SetBool(IsThrowingHash, true);
 
@@ -98,7 +103,7 @@ public class Archerie_AI : MonoBehaviour
             }
         }
 
-        else if (players_collider.Length != 0)
+        else if (players_collider.Length != 0 && ennemies_near.Length <= 4)
         {
             animator.SetBool(IsThrowingHash, false);
             last_attack = Time.time - 0.1f;
@@ -114,11 +119,6 @@ public class Archerie_AI : MonoBehaviour
 
             Spawn spawn = GameObject.FindGameObjectWithTag("spawn").GetComponent<Spawn>();
             spawn.decrease_monster_number(false);
-
-            /*foreach (GameObject potion in GameObject.FindGameObjectsWithTag("potion"))
-            {
-                potion.GetComponent<Potion_advance>().one_kill_more();
-            }*/
         }
     }
 

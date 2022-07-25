@@ -14,6 +14,7 @@ ScriptsOnlyBuild:
     - Boss_AI
     - CamMoving
     - Create_inventary
+    - Dammage_lava
     - Dammages
     - Defense
     - Description
@@ -21,10 +22,12 @@ ScriptsOnlyBuild:
     - Fireball
     - Gestion_Barre
     - Info_Storage
+    - Lava_move
     - Level
     - List_Inventary
     - Loot
     - Lootage
+    - Move_high
     - Name
     - Nb_Points
     - Outline
@@ -149,65 +152,71 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11804}
     - Class: 114
-      Script: {instanceID: 11872}
+      Script: {instanceID: 11868}
     - Class: 114
-      Script: {instanceID: 11992}
+      Script: {instanceID: 11874}
     - Class: 114
-      Script: {instanceID: 12024}
+      Script: {instanceID: 11994}
     - Class: 114
-      Script: {instanceID: 12034}
+      Script: {instanceID: 12026}
     - Class: 114
-      Script: {instanceID: 12044}
+      Script: {instanceID: 12036}
     - Class: 114
-      Script: {instanceID: 12090}
+      Script: {instanceID: 12046}
     - Class: 114
-      Script: {instanceID: 12094}
+      Script: {instanceID: 12092}
     - Class: 114
-      Script: {instanceID: 12126}
+      Script: {instanceID: 12096}
     - Class: 114
-      Script: {instanceID: 12204}
+      Script: {instanceID: 12128}
     - Class: 114
-      Script: {instanceID: 12260}
+      Script: {instanceID: 12206}
     - Class: 114
-      Script: {instanceID: 12294}
+      Script: {instanceID: 12262}
     - Class: 114
-      Script: {instanceID: 12320}
+      Script: {instanceID: 12296}
     - Class: 114
-      Script: {instanceID: 12362}
+      Script: {instanceID: 12322}
     - Class: 114
-      Script: {instanceID: 12588}
+      Script: {instanceID: 12364}
     - Class: 114
-      Script: {instanceID: 12628}
+      Script: {instanceID: 12396}
     - Class: 114
-      Script: {instanceID: 12672}
+      Script: {instanceID: 12592}
     - Class: 114
-      Script: {instanceID: 12674}
+      Script: {instanceID: 12632}
     - Class: 114
-      Script: {instanceID: 12682}
+      Script: {instanceID: 12676}
     - Class: 114
-      Script: {instanceID: 12728}
+      Script: {instanceID: 12678}
     - Class: 114
-      Script: {instanceID: 12758}
+      Script: {instanceID: 12686}
     - Class: 114
-      Script: {instanceID: 12770}
+      Script: {instanceID: 12732}
     - Class: 114
-      Script: {instanceID: 12824}
+      Script: {instanceID: 12762}
     - Class: 114
-      Script: {instanceID: 13016}
+      Script: {instanceID: 12774}
     - Class: 114
-      Script: {instanceID: 13030}
+      Script: {instanceID: 12828}
     - Class: 114
-      Script: {instanceID: 13064}
+      Script: {instanceID: 13020}
     - Class: 114
-      Script: {instanceID: 13128}
+      Script: {instanceID: 13034}
     - Class: 114
-      Script: {instanceID: 13130}
+      Script: {instanceID: 13068}
     - Class: 114
-      Script: {instanceID: 13158}
+      Script: {instanceID: 13132}
     - Class: 114
-      Script: {instanceID: 13160}
+      Script: {instanceID: 13134}
     - Class: 114
-      Script: {instanceID: 13180}
+      Script: {instanceID: 13162}
+    - Class: 114
+      Script: {instanceID: 13164}
+    - Class: 114
+      Script: {instanceID: 13184}
+    - Class: 114
+      Script: {instanceID: 13192}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -429,7 +438,7 @@ ScriptsOnlyBuild:
     className: AI
   - hash:
       serializedVersion: 2
-      Hash: e9972653e4fae3fdee3c15c713b94afb
+      Hash: 373351bfa0c7931b3b60716b0b797e8e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Nb_Points
@@ -505,6 +514,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Shadow
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Dammage_lava
   - hash:
       serializedVersion: 2
       Hash: 5f170942ee57c7a568f5bcfc7521adea
@@ -649,6 +664,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Move_high
   - hash:
       serializedVersion: 2
       Hash: f64fd37da5cb89243ec68b5026d70bb8
@@ -915,6 +936,12 @@ ScriptsOnlyBuild:
     className: Active_Tornado
   - hash:
       serializedVersion: 2
+      Hash: b8a025422a11c1de812bac762766499a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Lava_move
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -922,4 +949,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/flori/Documents/Build_Game_Design/Build LO5a/Circumflex.exe
+  playerPath: C:/Users/flori/Documents/Build_Game_Design/Build with locked zone/Circumflex.exe

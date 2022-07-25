@@ -82,6 +82,8 @@ public class Spawn : MonoBehaviour
 
         if (zone == 2)
         {
+            different_ennemis.Clear();
+            different_ennemis.Add(zombie_ennemy);
             different_ennemis.Add(archery_ennemy);
             max_ennemis = 15;
             spawn_time = 0.9f;
@@ -103,6 +105,8 @@ public class Spawn : MonoBehaviour
 
         if(zone == 5)
         {
+            different_ennemis.Clear();
+            different_ennemis.Add(mutant_enemy);
             different_ennemis.Add(archery_ennemy);
             max_ennemis = 40;
             spawn_time = 0.7f;
@@ -134,7 +138,8 @@ public class Spawn : MonoBehaviour
             if (z_sign != 0)
                 z_diff = -z_diff;
 
-            GameObject ennemy = different_ennemis[random.Next(different_ennemis.Count)];
+            int var = random.Next(different_ennemis.Count);
+            GameObject ennemy = different_ennemis[var];
             Instantiate(ennemy, new Vector3(x_diff + middle.x, 2, z_diff + middle.z), Quaternion.identity);
 
             time = Time.time;

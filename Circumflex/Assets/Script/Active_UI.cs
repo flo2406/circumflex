@@ -6,6 +6,7 @@ public class Active_UI : MonoBehaviour
 {
     [SerializeField] private GameObject UI;
     [SerializeField] private GameObject Player;
+    private GameObject[] ennemies;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class Active_UI : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.C))
         {
             GameObject actual_description = UI.GetComponent<Description>().get_description();
+
             if (actual_description != null)
             {
                 Destroy(actual_description);
@@ -26,11 +28,19 @@ public class Active_UI : MonoBehaviour
 
             if (UI.activeSelf)
             {
+                foreach (GameObject ennemy in ennemies)
+                    ennemy.SetActive(true);
+
                 UI.SetActive(false);
                 Player.SetActive(true);
             }
             else
             {
+                ennemies = GameObject.FindGameObjectsWithTag("ennemi");
+
+                foreach (GameObject ennemy in ennemies)
+                    ennemy.SetActive(false);
+
                 UI.SetActive(true);
                 Player.SetActive(false);
             }

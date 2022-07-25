@@ -4257,7 +4257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &358698799
 Transform:
   m_ObjectHideFlags: 0
@@ -23266,7 +23266,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: 056b8378eaa9abc4099799b460ca1f78, type: 2}
-  basicMat: {fileID: 2100000, guid: d8a7d31f497e15a47859d4c852dcee03, type: 2}
 --- !u!1 &601582732569979279
 GameObject:
   m_ObjectHideFlags: 0
